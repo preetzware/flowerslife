@@ -70,6 +70,17 @@ def welcome_message():
     print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n")
     input("Press (Enter) to go to the main menu\n")
 
+def main_menu () :
+  """
+  Displays main menu, options 1-4
+  """
+  clear_screen ()
+  print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n")
+  print("1. View Current Stock")
+  print("2. Add Stock")
+  print("3. Deduct Stock")
+  print("4. Input New Plants")
+  print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n")
 
 
 if __name__ == '__main__':
