@@ -19,3 +19,10 @@ houseplants = SHEET.worksheet('houseplants')
 flowerslist = SHEET.worksheet('flowerslist')
 hp_list = SHEET.worksheet('hp_list')
 gp_list = SHEET.worksheet('gp_list')
+
+
+def clear_screen():
+    """
+    clears console screen.
+    """
+    os.system('cls' if os.name == 'nt' else 'clear')
