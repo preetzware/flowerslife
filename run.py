@@ -94,20 +94,36 @@ def main_menu () :
         else:
             print("Invalid Input!\n Please enter a number between 1 & 4\n")
 
-if option == 1:
-    print("View Current Stock:")
-    submenu_current()
-elif option == 2:
-    print("Add Stock")
-    input_new_menu()
-elif option == 3:
-    print("Deduct Stock")
-    use_stock_menu()
-elif option == 4:
-    print("Input New Plants")
-    update_new_plant()
-else:
-    print("Invalid Choice!\n Please enter a number between 1 & 4\n")
+  if option == 1:
+      print("View Current Stock:")
+      submenu_current()
+  elif option == 2:
+      print("Add Stock")
+      input_new_menu()
+  elif option == 3:
+      print("Deduct Stock")
+      use_stock_menu()
+  elif option == 4:
+      print("Input New Plants")
+      update_new_plant()
+  else:
+      print("Invalid Choice!\n Please enter a number between 1 & 4\n")
+
+def submenu_current():
+    """
+    Displays the submenu for View Current Stock and handles user input.
+    """
+    clear_screen()
+    print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n")
+    print("View Current Stock")
+    print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n")
+    print("1. flowers")
+    print("2. garden_plants")
+    print("3. houseplants")
+    print("4. Return to Main Menu\n")
+    print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n")
+
+
 
 
 if __name__ == '__main__':
