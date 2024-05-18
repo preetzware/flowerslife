@@ -123,6 +123,26 @@ def submenu_current():
     print("4. Return to Main Menu\n")
     print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n")
 
+    while True:
+        option = input("Please select an option from 1-4:\n").strip()
+        if option.isdigit():
+            option = int(option)
+            if 1 <= option <= 4:
+                if option == 1:
+                    menu_category("flowers", flowers)
+                elif option == 2:
+                    menu_category("garden_plants", garden_plants)
+                elif option == 3:
+                    menu_category("houseplants", houseplants)
+                elif option == 4:
+                    clear_screen()
+                    main_menu()
+                    break
+            else:
+                print(f"Invalid Input! Please enter a number between 1 and 4.")
+        else:
+            print("Invalid Input!\nPlease enter a number between 1 and 4.\n")
+
 
 
 
