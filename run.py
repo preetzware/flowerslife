@@ -82,6 +82,33 @@ def main_menu () :
   print("4. Input New Plants")
   print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n")
 
+  while True:
+        option = input("Please select an option from 1-4:\n").strip()  # Trim
+
+        if option.isdigit():
+            option = int(option)
+            if 1 <= option <= 4:
+                break
+            else:
+                print("Invalid Input!\n Please enter a number between 1 & 4\n")
+        else:
+            print("Invalid Input!\n Please enter a number between 1 & 4\n")
+
+if option == 1:
+    print("View Current Stock:")
+    submenu_current()
+elif option == 2:
+    print("Add Stock")
+    input_new_menu()
+elif option == 3:
+    print("Deduct Stock")
+    use_stock_menu()
+elif option == 4:
+    print("Input New Plants")
+    update_new_plant()
+else:
+    print("Invalid Choice!\n Please enter a number between 1 & 4\n")
+
 
 if __name__ == '__main__':
     welcome_message()
