@@ -143,7 +143,26 @@ def submenu_current():
         else:
             print("Invalid Input!\nPlease enter a number between 1 and 4.\n")
 
-
+def menu_category(category_name, category_sheet):
+    """
+    Displays the plant items in their specific category.
+    Args:
+        category_name (str): The name of the category.
+        category_sheet (Worksheet): The worksheet containing the category data.
+    """
+    clear_screen()
+    print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-")
+    print(category_name)
+    print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n")
+    data = category_sheet.get_all_values()
+    
+    for row in data:
+        print("{:<20} {:<20}".format(row[0], row[1]))
+    print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n")
+    input("Press 'Enter' to return to the Current Stock Menu\n")
+    clear_screen()
+    submenu_current()
+    clear_screen()
 
 
 if __name__ == '__main__':
