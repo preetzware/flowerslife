@@ -170,7 +170,7 @@ def input_new_menu():
     """
     clear_screen()
     print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-")
-    print("Input New Plants")
+    print(f"{BLUE}Input New Plants{RESET}")
     print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n")
     print("1. flowers")
     print("2. garden_plants")
@@ -210,7 +210,7 @@ def add_stock(inventory_sheet, category_name):
     """
     clear_screen()
     print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-")
-    print("Input New Items")
+    print(f"{BLUE}Add Stock{RESET}")
     print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n")
     while True:
         item_name = input(
@@ -244,7 +244,22 @@ def add_stock(inventory_sheet, category_name):
         else:
             print("Invalid input for amount. Please enter a valid number.")
 
-        amount_to_add = input("Please enter the amount to add:\n").strip()
+def use_stock_menu():
+    """
+    Displays the menu for using/deducting stock items and handling user input.
+    """
+    clear_screen()
+    BLUE = "\033[94m"
+    RESET = "\033[0m"
+    
+    print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-")
+    print(f"{BLUE}Deduct Stock{RESET}")
+    print("--------------------------------------------------\n")
+    print("1. flowers")
+    print("2. garden_plants")
+    print("3. houseplants")
+    print("4. Return to Main Menu")
+    print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n")
 
 
 
