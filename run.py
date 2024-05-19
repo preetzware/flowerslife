@@ -164,6 +164,21 @@ def menu_category(category_name, category_sheet):
     submenu_current()
     clear_screen()
 
+def input_new_menu():
+    """
+    Displays the menu for inputting new items and handling user input.
+    """
+    clear_screen()
+    print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-")
+    print("Input New Plants")
+    print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n")
+    print("1. flowers")
+    print("2. garden_plants")
+    print("3. houseplants")
+    print("4. Return to Main Menu")
+    print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n")
+
+
 
 if __name__ == '__main__':
     welcome_message()
