@@ -224,6 +224,20 @@ def add_stock(inventory_sheet, category_name):
 
         amount_to_add = input("Please enter the amount to add:\n").strip()
 
+        if amount_to_add.isdigit():
+            amount_to_add = int(amount_to_add)
+            cell = inventory_sheet.find(item_name.title())
+            if cell:
+                current_amount = int(
+                 inventory_sheet.cell(cell.row, cell.col + 1).value)
+
+                new_amount = current_amount + amount_to_add
+                inventory_sheet.update_cell(cell.row, cell.col + 1, new_amount)
+                print(f"Added {amount_to_add} to {item_name}. "
+                      f"New amount: {new_amount}")
+
+        amount_to_add = input("Please enter the amount to add:\n").strip()
+
 
 
 if __name__ == '__main__':
