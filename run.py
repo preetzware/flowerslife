@@ -212,6 +212,18 @@ def add_stock(inventory_sheet, category_name):
     print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-")
     print("Input New Items")
     print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n")
+    while True:
+        item_name = input(
+         f"Enter {category_name} item name, "
+         f"or 'exit' to return to the menu:\n"
+        ).lower()
+
+        if item_name == "exit":
+            input_new_menu()
+            return
+
+        amount_to_add = input("Please enter the amount to add:\n").strip()
+
 
 
 if __name__ == '__main__':
