@@ -178,6 +178,26 @@ def input_new_menu():
     print("4. Return to Main Menu")
     print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n")
 
+    while True:
+        option = input("Please select an option from 1-4:\n").strip()
+
+        if option.isdigit():
+            option = int(option)
+            if 1 <= option <= 4:
+                if option == 1:
+                    add_stock(flowers, "flowers")
+                elif option == 2:
+                    add_stock(garden_plants, "garden_plants")
+                elif option == 3:
+                    add_stock(houseplants, "houseplants")
+                elif option == 4:
+                    print("Return to Main Menu")
+                    main_menu()
+                    break
+            else:
+                print("Invalid Choice. Please enter a number between 1 & 4\n")
+        else:
+            print("Invalid Input. Please enter a valid number between 1 & 4\n")
 
 
 if __name__ == '__main__':
