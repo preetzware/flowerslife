@@ -236,6 +236,14 @@ def add_stock(inventory_sheet, category_name):
                 print(f"Added {amount_to_add} to {item_name}. "
                       f"New amount: {new_amount}")
 
+            else:
+                print(f"Item '{item_name}' not found in the category.")
+        elif amount_to_add.lower() == "exit":
+            input_new_menu()
+            return
+        else:
+            print("Invalid input for amount. Please enter a valid number.")
+
         amount_to_add = input("Please enter the amount to add:\n").strip()
 
 
