@@ -199,6 +199,20 @@ def input_new_menu():
         else:
             print("Invalid Input. Please enter a valid number between 1 & 4\n")
 
+def add_stock(inventory_sheet, category_name):
+    """
+    Adds stock to a specific category.
+
+    Args:
+       inventory_sheet (Worksheet): Holds the inventory data.
+
+        category_name (str): The name of the category.
+    """
+    clear_screen()
+    print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-")
+    print("Input New Items")
+    print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n")
+
 
 if __name__ == '__main__':
     welcome_message()
