@@ -79,7 +79,7 @@ def main_menu () :
   print("1. View Current Stock")
   print("2. Add Stock")
   print("3. Deduct Stock")
-  print("4. Input New Plants")
+  print("4. Update Plants")
   print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n")
 
   while True:
@@ -104,7 +104,7 @@ def main_menu () :
       print("Deduct Stock")
       use_stock_menu()
   elif option == 4:
-      print("Input New Plants")
+      print("Update Plants")
       update_new_plant()
   else:
       print("Invalid Choice!\n Please enter a number between 1 & 4\n")
@@ -114,8 +114,10 @@ def submenu_current():
     Displays the submenu for View Current Stock and handles user input.
     """
     clear_screen()
+    BLUE = "\033[94m"
+    RESET = "\033[0m"
     print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n")
-    print("View Current Stock")
+    print(f"{BLUE}View Current Stock{RESET}")
     print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n")
     print("1. flowers")
     print("2. garden_plants")
@@ -169,8 +171,10 @@ def input_new_menu():
     Displays the menu for inputting new items and handling user input.
     """
     clear_screen()
+    BLUE = "\033[94m"
+    RESET = "\033[0m"
     print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-")
-    print(f"{BLUE}Input New Plants{RESET}")
+    print(f"{BLUE}Add Stock{RESET}")
     print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n")
     print("1. flowers")
     print("2. garden_plants")
@@ -209,6 +213,8 @@ def add_stock(inventory_sheet, category_name):
         category_name (str): The name of the category.
     """
     clear_screen()
+    BLUE = "\033[94m"
+    RESET = "\033[0m"
     print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-")
     print(f"{BLUE}Add Stock{RESET}")
     print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n")
@@ -293,8 +299,10 @@ def use_stock(inventory_sheet, category_name):
         category_name (str): The name of the category.
     """
     clear_screen()
+    BLUE = "\033[94m"
+    RESET = "\033[0m"
     print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-")
-    print("Use Stock Items")
+    print(f"{BLUE}Deduct Stock{RESET}")
     print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n")
     while True:
         item_name = input(
@@ -331,7 +339,21 @@ def use_stock(inventory_sheet, category_name):
         else:
             print("Invalid input for amount. Please enter a valid number.")
 
-
+def updateNewPlant():
+    """
+    Displays the menu for updating new items and handles user input.
+    """
+    clear_screen()
+    BLUE = "\033[94m"
+    RESET = "\033[0m"
+    print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-")
+    print(f"{BLUE}Update Plants{BLUE}")
+    print("--------------------------------------------------\n")
+    print("1. flowers")
+    print("2. garden_plants")
+    print("3. houseplants")
+    print("4. Return to Main Menu")
+    print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n")
 
 if __name__ == '__main__':
     welcome_message()
