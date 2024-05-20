@@ -376,6 +376,26 @@ def updateNewPlant():
         else:
             print("Invalid Input. Please enter a valid number between 1 & 4\n")
 
+def update_stockItem(inventory_sheet, category_sheet, category_name):
+    """
+    inventory_sheet - stock sheet
+    category_sheet - list sheet
+    category_name  - name of the stock sheet
+
+    Adds stock to a specific category.
+
+    Args:
+       inventory_sheet (Worksheet): Holds the inventory data.
+
+        category_name (str): The name of the category.
+    """
+    clear_screen()
+    print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-")
+    print("Update Plants")
+    print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n")
+
+
+
 if __name__ == '__main__':
     welcome_message()
     main_menu()
