@@ -296,6 +296,19 @@ def use_stock(inventory_sheet, category_name):
     print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-")
     print("Use Stock Items")
     print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n")
+    while True:
+        item_name = input(
+         f"Please enter {category_name} item name, "
+         f"or type 'exit' to go back to menu:\n"
+        ).lower()
+        if item_name == "exit":
+            use_stock_menu()
+            return
+
+        amount_to_use = input("Please enter the amount to use:\n")
+        print("type amount_to_use", amount_to_use)
+
+
 
 if __name__ == '__main__':
     welcome_message()
