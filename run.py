@@ -355,6 +355,27 @@ def updateNewPlant():
     print("4. Return to Main Menu")
     print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n")
 
+    while True:
+        option = input("Please select an option from 1-4:\n").strip()
+
+        if option.isdigit():
+            option = int(option)
+            if 1 <= option <= 4:
+                if option == 1:
+                    update_stockItem(flowers, flowerslist, "flower")
+                elif option == 2:
+                    update_stockItem(garden_plants, gardenplantslist, "garden_plant")
+                elif option == 3:
+                    update_stockItem(houseplants, houseplantslist, "houseplant")
+                elif option == 4:
+                    print("Returning to Main Menu")
+                    main_menu()
+                    break
+            else:
+                print("Invalid Choice. Please enter a number between 1 & 4\n")
+        else:
+            print("Invalid Input. Please enter a valid number between 1 & 4\n")
+
 if __name__ == '__main__':
     welcome_message()
     main_menu()
