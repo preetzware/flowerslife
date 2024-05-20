@@ -394,6 +394,31 @@ def update_stockItem(inventory_sheet, category_sheet, category_name):
     print("Update Plants")
     print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n")
 
+    while True:
+        item_name = input(
+         f"Enter {category_name} name, "
+         f"or 'exit' to return to the menu:\n"
+        ).lower()
+
+        if item_name == "exit":
+            updateNewPlant()
+            return
+
+        cell = inventory_sheet.find(item_name.title())
+        cellList = category_sheet.find(item_name.title())
+
+        if cell and cellList:
+            print(f"{item_name.title()} already exists")
+        elif not cell and cellList:
+            amount_to_add = input("Please enter the quantity to add:\n").strip()
+
+            if amount_to_add.isdigit():
+                amount_to_add = int(amount_to_add)
+                inventory_sheet.append_row([item_name, amount_to_add])
+                print(f"Added {amount_to_add} to {item_name}. ")
+        else:
+            print(f"Entered item {item_name} does not exist in list")
+
 
 
 if __name__ == '__main__':
