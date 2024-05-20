@@ -308,6 +308,29 @@ def use_stock(inventory_sheet, category_name):
         amount_to_use = input("Please enter the amount to use:\n")
         print("type amount_to_use", amount_to_use)
 
+        if amount_to_use.isdigit():
+            amount_to_use = int(amount_to_use)
+            cell = inventory_sheet.find(item_name.title())
+            if cell:
+                current_amount = int(
+                 inventory_sheet.cell(cell.row, cell.col + 1).value)
+
+                if current_amount >= amount_to_use:
+                    new_amount = current_amount - amount_to_use
+                    inventory_sheet.update_cell(
+                     cell.row, cell.col + 1, new_amount)
+                    print(f"Used {amount_to_use} from {item_name}. "
+                          f"New amount: {new_amount}")
+                else:
+                    print("Error: Insufficient stock.")
+            else:
+                print(f"Item '{item_name}' not found in the category.")
+        elif amount_to_use.lower() == "exit":
+            use_stock_menu()
+            return
+        else:
+            print("Invalid input for amount. Please enter a valid number.")
+
 
 
 if __name__ == '__main__':
