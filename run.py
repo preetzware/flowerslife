@@ -283,7 +283,19 @@ def use_stock_menu():
             print("Invalid Input. "
                   "Please enter a valid number between 1 & 4:\n")
 
+def use_stock(inventory_sheet, category_name):
+    """
+    Uses stock from a specific category.
 
+    Args:
+       inventory_sheet (Worksheet): Inventory data worksheet.
+
+        category_name (str): The name of the category.
+    """
+    clear_screen()
+    print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-")
+    print("Use Stock Items")
+    print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n")
 
 if __name__ == '__main__':
     welcome_message()
