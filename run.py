@@ -118,7 +118,7 @@ def submenu_current():
     print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n")
     print(f"{BLUE}View Current Stock{RESET}")
     print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n")
-    print("1. flowers")
+    print("1. Flowers")
     print("2. gardenplant")
     print("3. houseplants")
     print("4. Return to Main Menu\n")
