@@ -426,6 +426,39 @@ def update_stockItem(inventory_sheet, category_sheet, category_name, action):
             else:
                print(f"{item_name} is found in the list")
 
+def update_plants_menu():
+    """
+    Displays the submenu for View Current Stock and handles user input.
+    """
+    clear_screen()
+    BLUE = "\033[94m"
+    RESET = "\033[0m"
+    print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n")
+    print(f"{BLUE}View Current Stock{RESET}")
+    print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n")
+    print("1. Add Stock")
+    print("2. Remove stock")
+    print("3. Return to  Main Menu")    
+    print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n")
+
+    while True:
+        option = input("Please select an option from 1-3:\n").strip()
+        if option.isdigit():
+            option = int(option)
+            if 1 <= option <= 3:
+                if option == 1:
+                    update_new_plant()
+                elif option == 2:
+                    remove_plant()
+                elif option == 3:
+                    clear_screen()
+                    main_menu()
+                    break                
+            else:
+                print(f"Invalid Input! Please enter a number between 1 and 3.")
+        else:
+            print("Invalid Input!\nPlease enter a number between 1 and 3.\n")
+
 
 
 if __name__ == '__main__':
