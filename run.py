@@ -459,6 +459,42 @@ def update_plants_menu():
         else:
             print("Invalid Input!\nPlease enter a number between 1 and 3.\n")
 
+def remove_plant():
+    """    
+    Displays the menu for removing item from the list
+    """
+    clear_screen()
+    BLUE = "\033[94m"
+    RESET = "\033[0m"
+    print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-")
+    print(f"{BLUE}Remove Item{BLUE}")
+    print("--------------------------------------------------\n")
+    print("1. flowers")
+    print("2. garden_plants")
+    print("3. houseplants")
+    print("4. Return to Main Menu")
+    print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n")
+
+    while True:
+        option = input("Please select an option from 1-4:\n").strip()
+
+        if option.isdigit():
+            option = int(option)
+            if 1 <= option <= 4:
+                if option == 1:
+                    update_stockItem(flowers, flowerslist, "flower", "remove")                
+                elif option == 2:
+                    update_stockItem(garden_plants, gp_list, "garden_plant", "remove")
+                elif option == 3:
+                    update_stockItem(houseplants, hp_list, "houseplant", "remove")
+                elif option == 4:
+                    print("Returning to Main Menu")
+                    main_menu()
+                    break
+            else:
+                print("Invalid Choice. Please enter a number between 1 & 4\n")
+        else:
+            print("Invalid Input. Please enter a valid number between 1 & 4\n")
 
 
 if __name__ == '__main__':
