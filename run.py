@@ -14,7 +14,7 @@ GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('flowers_for_life')
 
 flowers = SHEET.worksheet('flowers')
-garden_plants = SHEET.worksheet('garden_plants')
+gardenplant = SHEET.worksheet('gardenplant')
 houseplants = SHEET.worksheet('houseplants')
 flowerslist = SHEET.worksheet('flowerslist')
 hp_list = SHEET.worksheet('hp_list')
@@ -33,7 +33,6 @@ def welcome_message():
     Displays the welcome message.
     """
     clear_screen()
-
     print(r"""
 
        __       __)
@@ -41,7 +40,7 @@ def welcome_message():
         | /| /  _  // _  ______    _    _/_ ___
         |/ |/ _(/_(/_(__(_) // (__(/_   (__(_)
         /  |
-""")
+    """)
 
 
 FLOWER = r"""
@@ -57,7 +56,7 @@ FLOWER = r"""
     """
 
 BANNER = r"""
-        ________)                                          _            
+        ________)                                          _
       (, /     /)                        /)           ___/__) ,   /)
         /___, // ____   _  _  __  _     // _____     (, /        //  _
     ) /     (/_(_) (_(/ _(/_/ (_/_)_  /(_(_)/ (_      /    _(_ /(__(/_
@@ -67,8 +66,9 @@ BANNER = r"""
 
 print(FLOWER)
 print(BANNER)
-print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n")
+print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n")
 input("Press (Enter) to go to the main menu\n")
+
 
 def main_menu():
     """
@@ -83,7 +83,7 @@ def main_menu():
     print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n")
 
     while True:
-        option = input("Please select an option from 1-4:\n").strip()  # Trim
+        option = input("Please select an option from 1-4:\n").strip()
 
         if option.isdigit():
             option = int(option)
@@ -105,7 +105,6 @@ def main_menu():
         use_stock_menu()
     elif option == 4:
         print("Update Plants")
-        # update_new_plant()
         update_plants_menu()
     else:
         print("Invalid Choice!\n Please enter a number between 1 & 4\n")
@@ -122,7 +121,7 @@ def submenu_current():
     print(f"{BLUE}View Current Stock{RESET}")
     print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n")
     print("1. flowers")
-    print("2. garden_plants")
+    print("2. gardenplant")
     print("3. houseplants")
     print("4. Return to Main Menu\n")
     print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n")
@@ -135,7 +134,7 @@ def submenu_current():
                 if option == 1:
                     menu_category("flowers", flowers)
                 elif option == 2:
-                    menu_category("garden_plants", garden_plants)
+                    menu_category("gardenplant", gardenplant)
                 elif option == 3:
                     menu_category("houseplants", houseplants)
                 elif option == 4:
@@ -159,9 +158,9 @@ def menu_category(category_name, category_sheet):
     print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-")
     print(category_name)
     print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n")
-    data = category_sheet.get_all_values()    
+    data = category_sheet.get_all_values()
 
-    for row in data:        
+    for row in data:
         print("{:<20} {:<20}".format(row[0], row[1]))
     print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n")
     input("Press 'Enter' to return to the Current Stock Menu\n")
@@ -181,7 +180,7 @@ def input_new_menu():
     print(f"{BLUE}Add Stock{RESET}")
     print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n")
     print("1. flowers")
-    print("2. garden_plants")
+    print("2. gardenplant")
     print("3. houseplants")
     print("4. Return to Main Menu")
     print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n")
@@ -195,7 +194,7 @@ def input_new_menu():
                 if option == 1:
                     add_stock(flowers, "flowers")
                 elif option == 2:
-                    add_stock(garden_plants, "garden_plants")
+                    add_stock(gardenplant, "gardenplant")
                 elif option == 3:
                     add_stock(houseplants, "houseplants")
                 elif option == 4:
@@ -255,6 +254,7 @@ def add_stock(inventory_sheet, category_name):
         else:
             print("Invalid input for amount. Please enter a valid number.")
 
+
 def use_stock_menu():
     """
     Displays the menu for using/deducting stock items and handling user input.
@@ -267,7 +267,7 @@ def use_stock_menu():
     print(f"{BLUE}Deduct Stock{RESET}")
     print("--------------------------------------------------\n")
     print("1. flowers")
-    print("2. garden_plants")
+    print("2. gardenplant")
     print("3. houseplants")
     print("4. Return to Main Menu")
     print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n")
@@ -281,7 +281,7 @@ def use_stock_menu():
                 if option == 1:
                     use_stock(flowers, "flowers")
                 elif option == 2:
-                    use_stock(garden_plants, "garden_plants")
+                    use_stock(gardenplant, "gardenplant")
                 elif option == 3:
                     use_stock(houseplants, "houseplants")
                 elif option == 4:
@@ -320,7 +320,6 @@ def use_stock(inventory_sheet, category_name):
             return
 
         amount_to_use = input("Please enter the amount to use:\n")
-        print("type amount_to_use", amount_to_use)
 
         if amount_to_use.isdigit():
             amount_to_use = int(amount_to_use)
@@ -345,7 +344,65 @@ def use_stock(inventory_sheet, category_name):
         else:
             print("Invalid input for amount. Please enter a valid number.")
 
+def plants_list_menu():
+    """
+    Displays the list of plants menu
+    """
+    clear_screen()
+    BLUE = "\033[94m"
+    RESET = "\033[0m"
+    print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n")
+    print(f"{BLUE}View Plants List{RESET}")
+    print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n")
+    print("1. Flowers List")
+    print("2. Garden Plants List")
+    print("3. House Plants List")
+    print("4. Return to Main Menu\n")
+    print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n")
 
+    while True:
+        option = input("Please select an option from 1-4:\n").strip()
+        if option.isdigit():
+            option = int(option)
+            if 1 <= option <= 4:
+                if option == 1:
+                    menu_category_list("flowers list", flowerslist)
+                elif option == 2:
+                    menu_category_list("gardenplant list", gp_list)
+                elif option == 3:
+                    menu_category_list("houseplants list", hp_list)
+                elif option == 4:
+                    clear_screen()
+                    main_menu()
+                    break
+            else:
+                print(f"Invalid Input! Please enter a number between 1 and 4.")
+        else:
+            print("Invalid Input!\nPlease enter a number between 1 and 4.\n")
+
+
+def menu_category_list(category_name, category_sheet):
+    """
+    Displays the plant list in their specific category.
+    Args:
+        category_name (str): The name of the category.
+        category_sheet (Worksheet): The worksheet containing the category data.
+    """
+    clear_screen()
+    print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-")
+    print(category_name)
+    print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n")
+    data = category_sheet.get_all_values()
+
+    for row in data:
+        print("{:<20}".format(row[0]))
+    print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n")
+    input("Press 'Enter' to return to the plant list Menu\n")
+    clear_screen()
+    plants_list_menu()
+    clear_screen()
+
+    
 def update_new_plant():
     """
     Displays the menu for updating new items and handles user input.
@@ -357,7 +414,7 @@ def update_new_plant():
     print(f"{BLUE}Update Plants{BLUE}")
     print("--------------------------------------------------\n")
     print("1. flowers")
-    print("2. garden_plants")
+    print("2. gardenplant")
     print("3. houseplants")
     print("4. Return to Main Menu")
     print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n")
@@ -371,7 +428,7 @@ def update_new_plant():
                 if option == 1:
                     update_list(flowers, flowerslist, "flower", "add")
                 elif option == 2:
-                    update_list(garden_plants, gp_list, "garden_plant", "add")
+                    update_list(gardenplant, gp_list, "garden_plant", "add")
                 elif option == 3:
                     update_list(houseplants, hp_list, "houseplant", "add")
                 elif option == 4:
@@ -418,7 +475,7 @@ def update_list(inventory_sheet, category_sheet, category_name, action):
             if cell and cellList:
                 print(f"{item_name.title()} already exists")
             elif not cell and cellList:
-                amount_to_add = input("Please enter the quantity to add:\n").strip()
+                amount_to_add = input("Enter the amount to add:\n").strip()
 
                 if amount_to_add.isdigit():
                     amount_to_add = int(amount_to_add)
@@ -443,7 +500,7 @@ def update_plants_menu():
     BLUE = "\033[94m"
     RESET = "\033[0m"
     print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n")
-    print(f"{BLUE}Plants{RESET}")
+    print(f"{BLUE}Update Plants{RESET}")
     print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n")
     print("1. View Plants List")
     print("2. Add Stock")
@@ -483,7 +540,7 @@ def remove_plant():
     print(f"{BLUE}Remove Item{BLUE}")
     print("--------------------------------------------------\n")
     print("1. flowers")
-    print("2. garden_plants")
+    print("2. gardenplant")
     print("3. houseplants")
     print("4. Return to Main Menu")
     print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n")
@@ -497,7 +554,7 @@ def remove_plant():
                 if option == 1:
                     update_list(flowers, flowerslist, "flower", "remove")
                 elif option == 2:
-                    update_list(garden_plants, gp_list, "garden_plant", "remove")
+                    update_list(gardenplant, gp_list, "garden_plant", "remove")
                 elif option == 3:
                     update_list(houseplants, hp_list, "houseplant", "remove")
                 elif option == 4:
@@ -509,64 +566,6 @@ def remove_plant():
         else:
             print("Invalid Input. Please enter a valid number between 1 & 4\n")
 
-
-def plants_list_menu():
-    """
-    Displays the list of plants menu
-    """
-    clear_screen()
-    BLUE = "\033[94m"
-    RESET = "\033[0m"
-    print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n")
-    print(f"{BLUE}View Plants List{RESET}")
-    print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n")
-    print("1. Flowers List")
-    print("2. Garden Plants List")
-    print("3. House Plants List")
-    print("4. Return to Main Menu\n")
-    print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n")
-
-    while True:
-        option = input("Please select an option from 1-4:\n").strip()
-        if option.isdigit():
-            option = int(option)
-            if 1 <= option <= 4:
-                if option == 1:
-                    menu_category_list("flowers list", flowerslist)
-                elif option == 2:
-                    menu_category_list("garden_plants list", gp_list)
-                elif option == 3:
-                    menu_category_list("houseplants list", hp_list)
-                elif option == 4:
-                    clear_screen()
-                    main_menu()
-                    break
-            else:
-                print(f"Invalid Input! Please enter a number between 1 and 4.")
-        else:
-            print("Invalid Input!\nPlease enter a number between 1 and 4.\n")
-
-
-def menu_category_list(category_name, category_sheet):
-    """
-    Displays the plant list in their specific category.
-    Args:
-        category_name (str): The name of the category.
-        category_sheet (Worksheet): The worksheet containing the category data.
-    """
-    clear_screen()
-    print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-")
-    print(category_name)
-    print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n")
-    data = category_sheet.get_all_values()    
-
-    for row in data:        
-        print("{:<20}".format(row[0]))
-    print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n")
-    input("Press 'Enter' to return to the plant list Menu\n")
-    clear_screen()    
-    plants_list_menu()
-    clear_screen()
 
 if __name__ == '__main__':
     welcome_message()
