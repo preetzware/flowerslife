@@ -64,25 +64,24 @@ def welcome_message():
                                     (/                      )(/  
     """
 
-    # Print FLOWER and BANNER
     print(FLOWER)
     print(BANNER)
     print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n")
     input("Press (Enter) to go to the main menu\n")
 
 def main_menu () :
-  """
-  Displays main menu, options 1-4
-  """
-  clear_screen ()
-  print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n")
-  print("1. View Current Stock")
-  print("2. Add Stock")
-  print("3. Deduct Stock")
-  print("4. Update Plants")
-  print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n")
+    """
+    Displays main menu, options 1-4
+    """
+    clear_screen ()
+    print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n")
+    print("1. View Current Stock")
+    print("2. Add Stock")
+    print("3. Deduct Stock")
+    print("4. Update Plants")
+    print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n")
 
-  while True:
+    while True:
         option = input("Please select an option from 1-4:\n").strip()  # Trim
 
         if option.isdigit():
@@ -94,20 +93,21 @@ def main_menu () :
         else:
             print("Invalid Input!\n Please enter a number between 1 & 4\n")
 
-  if option == 1:
-      print("View Current Stock:")
-      submenu_current()
-  elif option == 2:
-      print("Add Stock")
-      input_new_menu()
-  elif option == 3:
-      print("Deduct Stock")
-      use_stock_menu()
-  elif option == 4:
-      print("Update Plants")
-      update_new_plant()
-  else:
-      print("Invalid Choice!\n Please enter a number between 1 & 4\n")
+    if option == 1:
+        print("View Current Stock:")
+        submenu_current()
+    elif option == 2:
+        print("Add Stock")
+        input_new_menu()
+    elif option == 3:
+        print("Deduct Stock")
+        use_stock_menu()
+    elif option == 4:
+        print("Update Plants")
+        # update_new_plant()
+        update_plants_menu()
+    else:
+        print("Invalid Choice!\n Please enter a number between 1 & 4\n")
 
 def submenu_current():
     """
@@ -339,7 +339,7 @@ def use_stock(inventory_sheet, category_name):
         else:
             print("Invalid input for amount. Please enter a valid number.")
 
-def updateNewPlant():
+def update_new_plant():
     """
     Displays the menu for updating new items and handles user input.
     """
@@ -362,11 +362,11 @@ def updateNewPlant():
             option = int(option)
             if 1 <= option <= 4:
                 if option == 1:
-                    update_stockItem(flowers, flowerslist, "flower")
+                    update_stockItem(flowers, flowerslist, "flower", "add")
                 elif option == 2:
-                    update_stockItem(garden_plants, gardenplantslist, "garden_plant")
+                    update_stockItem(garden_plants, gp_list, "garden_plant", "add")
                 elif option == 3:
-                    update_stockItem(houseplants, houseplantslist, "houseplant")
+                    update_stockItem(houseplants, hp_list, "houseplant", "add")
                 elif option == 4:
                     print("Returning to Main Menu")
                     main_menu()
@@ -376,7 +376,7 @@ def updateNewPlant():
         else:
             print("Invalid Input. Please enter a valid number between 1 & 4\n")
 
-def update_stockItem(inventory_sheet, category_sheet, category_name):
+def update_stockItem(inventory_sheet, category_sheet, category_name, action):
     """
     inventory_sheet - stock sheet
     category_sheet - list sheet
@@ -401,23 +401,30 @@ def update_stockItem(inventory_sheet, category_sheet, category_name):
         ).lower()
 
         if item_name == "exit":
-            updateNewPlant()
-            return
+            update_new_plant()
+            return        
+        if action == "add":
+            cell = inventory_sheet.find(item_name.title())
+            cellList = category_sheet.find(item_name.title())
 
-        cell = inventory_sheet.find(item_name.title())
-        cellList = category_sheet.find(item_name.title())
+            if cell and cellList:
+                print(f"{item_name.title()} already exists")
+            elif not cell and cellList:
+                amount_to_add = input("Please enter the quantity to add:\n").strip()
 
-        if cell and cellList:
-            print(f"{item_name.title()} already exists")
-        elif not cell and cellList:
-            amount_to_add = input("Please enter the quantity to add:\n").strip()
-
-            if amount_to_add.isdigit():
-                amount_to_add = int(amount_to_add)
-                inventory_sheet.append_row([item_name, amount_to_add])
-                print(f"Added {amount_to_add} to {item_name}. ")
+                if amount_to_add.isdigit():
+                    amount_to_add = int(amount_to_add)
+                    inventory_sheet.append_row([item_name, amount_to_add])
+                    print(f"Added {amount_to_add} to {item_name}. ")
+            else:
+                print(f"Entered item {item_name} does not exist in list")
         else:
-            print(f"Entered item {item_name} does not exist in list")
+            cell = inventory_sheet.find(item_name.title())
+            if cell:
+                inventory_sheet.delete_rows(cell.row)
+                print(f"{item_name} is deleted")            
+            else:
+               print(f"{item_name} is found in the list")
 
 
 
