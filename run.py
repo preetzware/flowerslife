@@ -64,7 +64,7 @@ def welcome_message():
 
     print(FLOWER)
     print(BANNER)
-    print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n")
+    print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n")
     input("Press (Enter) to go to the main menu\n")
 
 
@@ -342,6 +342,7 @@ def use_stock(inventory_sheet, category_name):
         else:
             print("Invalid input for amount. Please enter a valid number.")
 
+
 def plants_list_menu():
     """
     Displays the list of plants menu
@@ -400,7 +401,7 @@ def menu_category_list(category_name, category_sheet):
     plants_list_menu()
     clear_screen()
 
-    
+
 def update_new_plant():
     """
     Displays the menu for updating new items and handles user input.
@@ -439,16 +440,16 @@ def update_new_plant():
             print("Invalid Input. Please enter a valid number between 1 & 4\n")
 
 
-def update_list(inventory_sheet, category_sheet, category_name, action):
+def update_list(in_sheet, category_sheet, category_name, action):
     """
-    inventory_sheet - stock sheet
+    in_sheet (inventory sheet) - stock sheet
     category_sheet - list sheet
     category_name  - name of the stock sheet
 
     Adds stock to a specific category.
 
     Args:
-       inventory_sheet (Worksheet): Holds the inventory data.
+       in_sheet (Worksheet): Holds the inventory data.
 
         category_name (str): The name of the category.
     """
@@ -467,9 +468,9 @@ def update_list(inventory_sheet, category_sheet, category_name, action):
             update_new_plant()
             return
         if action == "add":
-            cell = inventory_sheet.find(item_name.title())
+            cell = in_sheet.find(item_name.title())
             cellList = category_sheet.find(item_name.title())
-            
+
             if cell and cellList:
                 print(f"{item_name.title()} already exists")
             elif not cell and cellList:
@@ -477,14 +478,14 @@ def update_list(inventory_sheet, category_sheet, category_name, action):
 
                 if amount_to_add.isdigit():
                     amount_to_add = int(amount_to_add)
-                    inventory_sheet.append_row([item_name.title(), amount_to_add])
+                    in_sheet.append_row([item_name.title(), amount_to_add])
                     print(f"Added {amount_to_add} to {item_name}. ")
             else:
                 print(f"Entered item {item_name} does not exist in list")
         elif action == "remove":
-            cell = inventory_sheet.find(item_name.title())
+            cell = in_sheet.find(item_name.title())
             if cell:
-                inventory_sheet.delete_rows(cell.row)
+                in_sheet.delete_rows(cell.row)
                 print(f"{item_name} is deleted")
             else:
                 print(f"{item_name} is found in the list")
