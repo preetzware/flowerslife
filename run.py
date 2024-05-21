@@ -27,6 +27,7 @@ def clear_screen():
     """
     os.system('cls' if os.name == 'nt' else 'clear')
 
+
 def welcome_message():
     """
     Displays the welcome message.
@@ -34,16 +35,16 @@ def welcome_message():
     clear_screen()
 
     print(r"""
-    
+
        __       __)
       (, ) |  /     /)
         | /| /  _  // _  ______    _    _/_ ___
         |/ |/ _(/_(/_(__(_) // (__(/_   (__(_)
-        /  |                                                         
+        /  |
 """)
-   
 
-    FLOWER = r""" 
+
+FLOWER = r"""
         _
       _(_)_                          wWWWw   _
      (_)@(_)   vVVVv     _     @@@@  (___) _(_)_
@@ -51,29 +52,29 @@ def welcome_message():
         `  |/    Y    (_)@(_)  @@@@   \|/   (_)\
           \|    \|/    /(_)    \|      |/      |
            | / \ | /  \|/       |/    \|      \|/
-        \\\|//\\\|/// \|///  \\\|//  \\|//  \\\|// 
+        \\\|//\\\|/// \|///  \\\|//  \\|//  \\\|//
     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
     """
 
-    BANNER = r"""
+BANNER = r"""
         ________)                                          _            
-      (, /     /)                        /)           ___/__) ,   /)   
-        /___, // ____   _  _  __  _     // _____     (, /        //  _ 
+      (, /     /)                        /)           ___/__) ,   /)
+        /___, // ____   _  _  __  _     // _____     (, /        //  _
     ) /     (/_(_) (_(/ _(/_/ (_/_)_  /(_(_)/ (_      /    _(_ /(__(/_
-    (_/                               /)              (_____   /)      
-                                    (/                      )(/  
+    (_/                               /)              (_____   /)
+                                    (/                      )(/
     """
 
-    print(FLOWER)
-    print(BANNER)
-    print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n")
-    input("Press (Enter) to go to the main menu\n")
+print(FLOWER)
+print(BANNER)
+print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n")
+input("Press (Enter) to go to the main menu\n")
 
-def main_menu () :
+def main_menu():
     """
     Displays main menu, options 1-4
     """
-    clear_screen ()
+    clear_screen()
     print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n")
     print("1. View Current Stock")
     print("2. Add Stock")
@@ -108,6 +109,7 @@ def main_menu () :
         update_plants_menu()
     else:
         print("Invalid Choice!\n Please enter a number between 1 & 4\n")
+
 
 def submenu_current():
     """
@@ -145,6 +147,7 @@ def submenu_current():
         else:
             print("Invalid Input!\nPlease enter a number between 1 and 4.\n")
 
+
 def menu_category(category_name, category_sheet):
     """
     Displays the plant items in their specific category.
@@ -157,7 +160,7 @@ def menu_category(category_name, category_sheet):
     print(category_name)
     print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n")
     data = category_sheet.get_all_values()
-    
+
     for row in data:
         print("{:<20} {:<20}".format(row[0], row[1]))
     print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n")
@@ -165,6 +168,7 @@ def menu_category(category_name, category_sheet):
     clear_screen()
     submenu_current()
     clear_screen()
+
 
 def input_new_menu():
     """
@@ -202,6 +206,7 @@ def input_new_menu():
                 print("Invalid Choice. Please enter a number between 1 & 4\n")
         else:
             print("Invalid Input. Please enter a valid number between 1 & 4\n")
+
 
 def add_stock(inventory_sheet, category_name):
     """
@@ -257,7 +262,7 @@ def use_stock_menu():
     clear_screen()
     BLUE = "\033[94m"
     RESET = "\033[0m"
-    
+
     print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-")
     print(f"{BLUE}Deduct Stock{RESET}")
     print("--------------------------------------------------\n")
@@ -288,6 +293,7 @@ def use_stock_menu():
         else:
             print("Invalid Input. "
                   "Please enter a valid number between 1 & 4:\n")
+
 
 def use_stock(inventory_sheet, category_name):
     """
@@ -339,6 +345,7 @@ def use_stock(inventory_sheet, category_name):
         else:
             print("Invalid input for amount. Please enter a valid number.")
 
+
 def update_new_plant():
     """
     Displays the menu for updating new items and handles user input.
@@ -362,11 +369,11 @@ def update_new_plant():
             option = int(option)
             if 1 <= option <= 4:
                 if option == 1:
-                    update_stockItem(flowers, flowerslist, "flower", "add")
+                    update_list(flowers, flowerslist, "flower", "add")
                 elif option == 2:
-                    update_stockItem(garden_plants, gp_list, "garden_plant", "add")
+                    update_list(garden_plants, gp_list, "garden_plant", "add")
                 elif option == 3:
-                    update_stockItem(houseplants, hp_list, "houseplant", "add")
+                    update_list(houseplants, hp_list, "houseplant", "add")
                 elif option == 4:
                     print("Returning to Main Menu")
                     main_menu()
@@ -376,7 +383,8 @@ def update_new_plant():
         else:
             print("Invalid Input. Please enter a valid number between 1 & 4\n")
 
-def update_stockItem(inventory_sheet, category_sheet, category_name, action):
+
+def update_list(inventory_sheet, category_sheet, category_name, action):
     """
     inventory_sheet - stock sheet
     category_sheet - list sheet
@@ -402,7 +410,7 @@ def update_stockItem(inventory_sheet, category_sheet, category_name, action):
 
         if item_name == "exit":
             update_new_plant()
-            return        
+            return
         if action == "add":
             cell = inventory_sheet.find(item_name.title())
             cellList = category_sheet.find(item_name.title())
@@ -422,9 +430,10 @@ def update_stockItem(inventory_sheet, category_sheet, category_name, action):
             cell = inventory_sheet.find(item_name.title())
             if cell:
                 inventory_sheet.delete_rows(cell.row)
-                print(f"{item_name} is deleted")            
+                print(f"{item_name} is deleted")
             else:
-               print(f"{item_name} is found in the list")
+                print(f"{item_name} is found in the list")
+
 
 def update_plants_menu():
     """
@@ -434,11 +443,11 @@ def update_plants_menu():
     BLUE = "\033[94m"
     RESET = "\033[0m"
     print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n")
-    print(f"{BLUE}View Current Stock{RESET}")
+    print(f"{BLUE}Plants{RESET}")
     print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n")
     print("1. Add Stock")
     print("2. Remove stock")
-    print("3. Return to  Main Menu")    
+    print("3. Return to  Main Menu")
     print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n")
 
     while True:
@@ -453,14 +462,15 @@ def update_plants_menu():
                 elif option == 3:
                     clear_screen()
                     main_menu()
-                    break                
+                    break
             else:
                 print(f"Invalid Input! Please enter a number between 1 and 3.")
         else:
             print("Invalid Input!\nPlease enter a number between 1 and 3.\n")
 
+
 def remove_plant():
-    """    
+    """
     Displays the menu for removing item from the list
     """
     clear_screen()
@@ -482,11 +492,11 @@ def remove_plant():
             option = int(option)
             if 1 <= option <= 4:
                 if option == 1:
-                    update_stockItem(flowers, flowerslist, "flower", "remove")                
+                    update_list(flowers, flowerslist, "flower", "remove")
                 elif option == 2:
-                    update_stockItem(garden_plants, gp_list, "garden_plant", "remove")
+                    update_list(garden_plants, gp_list, "garden_plant", "remove")
                 elif option == 3:
-                    update_stockItem(houseplants, hp_list, "houseplant", "remove")
+                    update_list(houseplants, hp_list, "houseplant", "remove")
                 elif option == 4:
                     print("Returning to Main Menu")
                     main_menu()
