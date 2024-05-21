@@ -27,6 +27,10 @@ def clear_screen():
     """
     os.system('cls' if os.name == 'nt' else 'clear')
 
+BRIGHT_GREEN = "\033[92m"
+BRIGHT_BLUE = "\033[94m"
+RESET = "\033[0m"
+
 
 def welcome_message():
     """
@@ -34,12 +38,10 @@ def welcome_message():
     """
     clear_screen()
     print(r"""
-
-       __       __)
-      (, ) |  /     /)
-        | /| /  _  // _  ______    _    _/_ ___
-        |/ |/ _(/_(/_(__(_) // (__(/_   (__(_)
-        /  |
+      __      __   _                    _       
+      \ \    / /__| |__ ___ _ __  ___  | |_ ___ 
+       \ \/\/ / -_) / _/ _ \ '  \/ -_) |  _/ _ \
+        \_/\_/\___|_\__\___/_|_|_\___|  \__\___/
     """)
     FLOWER = r"""
         _
@@ -50,20 +52,18 @@ def welcome_message():
           \|    \|/    /(_)    \|      |/      |
            | / \ | /  \|/       |/    \|      \|/
         \\\|//\\\|/// \|///  \\\|//  \\|//  \\\|//
-    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
     """
-
     BANNER = r"""
-        ________)                                          _
-      (, /     /)                        /)           ___/__) ,   /)
-        /___, // ____   _  _  __  _     // _____     (, /        //  _
-    ) /     (/_(_) (_(/ _(/_/ (_/_)_  /(_(_)/ (_      /    _(_ /(__(/_
-    (_/                               /)              (_____   /)
-                                    (/                      )(/
+      ___ _                          __           _    _  __     
+     | __| |_____ __ _____ _ _ ___  / _|___ _ _  | |  (_)/ _|___ 
+     | _|| / _ \ V  V / -_) '_(_-< |  _/ _ \ '_| | |__| |  _/ -_)
+     |_| |_\___/\_/\_/\___|_| /__/ |_| \___/_|   |____|_|_| \___|
+                                                             
     """
 
-    print(FLOWER)
-    print(BANNER)
+    print(f"{BRIGHT_GREEN}{FLOWER}{RESET}")
+    print(f"{BRIGHT_BLUE}{BANNER}{RESET}")
     print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n")
     input("Press (Enter) to go to the main menu\n")
 
@@ -73,11 +73,13 @@ def main_menu():
     Displays main menu, options 1-4
     """
     clear_screen()
+    GREEN = "\033[92m"
+    RESET = "\033[0m"
     print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n")
-    print("1. View Current Stock")
-    print("2. Add Stock")
-    print("3. Deduct Stock")
-    print("4. Update Plants")
+    print(f"{GREEN}1. View Current Stock{RESET}")
+    print(f"{GREEN}2. Add Stock{RESET}")
+    print(f"{GREEN}3. Deduct Stock{RESET}")
+    print(f"{GREEN}4. Update Plants{RESET}")
     print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n")
 
     while True:
@@ -119,8 +121,8 @@ def submenu_current():
     print(f"{BLUE}View Current Stock{RESET}")
     print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n")
     print("1. Flowers")
-    print("2. gardenplant")
-    print("3. houseplants")
+    print("2. Gardenplant")
+    print("3. Houseplants")
     print("4. Return to Main Menu\n")
     print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n")
 
@@ -177,9 +179,9 @@ def input_new_menu():
     print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-")
     print(f"{BLUE}Add Stock{RESET}")
     print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n")
-    print("1. flowers")
-    print("2. gardenplant")
-    print("3. houseplants")
+    print("1. Flowers")
+    print("2. Gardenplant")
+    print("3. Houseplants")
     print("4. Return to Main Menu")
     print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n")
 
@@ -264,9 +266,9 @@ def use_stock_menu():
     print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-")
     print(f"{BLUE}Deduct Stock{RESET}")
     print("--------------------------------------------------\n")
-    print("1. flowers")
-    print("2. gardenplant")
-    print("3. houseplants")
+    print("1. Flowers")
+    print("2. Gardenplant")
+    print("3. Houseplants")
     print("4. Return to Main Menu")
     print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n")
 
@@ -412,9 +414,9 @@ def update_new_plant():
     print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-")
     print(f"{BLUE}Update Plants{BLUE}")
     print("--------------------------------------------------\n")
-    print("1. flowers")
-    print("2. gardenplant")
-    print("3. houseplants")
+    print("1. Flowers")
+    print("2. Gardenplant")
+    print("3. Houseplants")
     print("4. Return to Main Menu")
     print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n")
 
@@ -472,7 +474,7 @@ def update_list(in_sheet, category_sheet, category_name, action):
             cellList = category_sheet.find(item_name.title())
 
             if cell and cellList:
-                print(f"{item_name.title()} already exists")
+                print(f"{item_name.title()} already exists in current stock")
             elif not cell and cellList:
                 amount_to_add = input("Enter the amount to add:\n").strip()
 
@@ -481,7 +483,7 @@ def update_list(in_sheet, category_sheet, category_name, action):
                     in_sheet.append_row([item_name.title(), amount_to_add])
                     print(f"Added {amount_to_add} to {item_name}. ")
             else:
-                print(f"Entered item {item_name} does not exist in list")
+                print(f"Entered item {item_name} is invalid.")
         elif action == "remove":
             cell = in_sheet.find(item_name.title())
             if cell:
@@ -538,9 +540,9 @@ def remove_plant():
     print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-")
     print(f"{BLUE}Remove Item{BLUE}")
     print("--------------------------------------------------\n")
-    print("1. flowers")
-    print("2. gardenplant")
-    print("3. houseplants")
+    print("1. Flowers")
+    print("2. Gardenplant")
+    print("3. Houseplants")
     print("4. Return to Main Menu")
     print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n")
 
