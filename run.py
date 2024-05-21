@@ -41,9 +41,7 @@ def welcome_message():
         |/ |/ _(/_(/_(__(_) // (__(/_   (__(_)
         /  |
     """)
-
-
-FLOWER = r"""
+    FLOWER = r"""
         _
       _(_)_                          wWWWw   _
      (_)@(_)   vVVVv     _     @@@@  (___) _(_)_
@@ -55,7 +53,7 @@ FLOWER = r"""
     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
     """
 
-BANNER = r"""
+    BANNER = r"""
         ________)                                          _
       (, /     /)                        /)           ___/__) ,   /)
         /___, // ____   _  _  __  _     // _____     (, /        //  _
@@ -64,10 +62,10 @@ BANNER = r"""
                                     (/                      )(/
     """
 
-print(FLOWER)
-print(BANNER)
-print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n")
-input("Press (Enter) to go to the main menu\n")
+    print(FLOWER)
+    print(BANNER)
+    print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n")
+    input("Press (Enter) to go to the main menu\n")
 
 
 def main_menu():
@@ -471,7 +469,7 @@ def update_list(inventory_sheet, category_sheet, category_name, action):
         if action == "add":
             cell = inventory_sheet.find(item_name.title())
             cellList = category_sheet.find(item_name.title())
-
+            
             if cell and cellList:
                 print(f"{item_name.title()} already exists")
             elif not cell and cellList:
@@ -479,11 +477,11 @@ def update_list(inventory_sheet, category_sheet, category_name, action):
 
                 if amount_to_add.isdigit():
                     amount_to_add = int(amount_to_add)
-                    inventory_sheet.append_row([item_name, amount_to_add])
+                    inventory_sheet.append_row([item_name.title(), amount_to_add])
                     print(f"Added {amount_to_add} to {item_name}. ")
             else:
                 print(f"Entered item {item_name} does not exist in list")
-        else:
+        elif action == "remove":
             cell = inventory_sheet.find(item_name.title())
             if cell:
                 inventory_sheet.delete_rows(cell.row)
