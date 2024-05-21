@@ -159,9 +159,9 @@ def menu_category(category_name, category_sheet):
     print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-")
     print(category_name)
     print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n")
-    data = category_sheet.get_all_values()
+    data = category_sheet.get_all_values()    
 
-    for row in data:
+    for row in data:        
         print("{:<20} {:<20}".format(row[0], row[1]))
     print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n")
     input("Press 'Enter' to return to the Current Stock Menu\n")
@@ -445,28 +445,31 @@ def update_plants_menu():
     print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n")
     print(f"{BLUE}Plants{RESET}")
     print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n")
-    print("1. Add Stock")
-    print("2. Remove stock")
-    print("3. Return to  Main Menu")
+    print("1. View Plants List")
+    print("2. Add Stock")
+    print("3. Remove stock")
+    print("4. Return to  Main Menu")
     print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n")
 
     while True:
-        option = input("Please select an option from 1-3:\n").strip()
+        option = input("Please select an option from 1-4:\n").strip()
         if option.isdigit():
             option = int(option)
-            if 1 <= option <= 3:
+            if 1 <= option <= 4:
                 if option == 1:
+                    plants_list_menu()
+                if option == 2:
                     update_new_plant()
-                elif option == 2:
-                    remove_plant()
                 elif option == 3:
+                    remove_plant()
+                elif option == 4:
                     clear_screen()
                     main_menu()
                     break
             else:
-                print(f"Invalid Input! Please enter a number between 1 and 3.")
+                print(f"Invalid Input! Please enter a number between 1 and 4.")
         else:
-            print("Invalid Input!\nPlease enter a number between 1 and 3.\n")
+            print("Invalid Input!\nPlease enter a number between 1 and 4.\n")
 
 
 def remove_plant():
@@ -506,6 +509,64 @@ def remove_plant():
         else:
             print("Invalid Input. Please enter a valid number between 1 & 4\n")
 
+
+def plants_list_menu():
+    """
+    Displays the list of plants menu
+    """
+    clear_screen()
+    BLUE = "\033[94m"
+    RESET = "\033[0m"
+    print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n")
+    print(f"{BLUE}View Plants List{RESET}")
+    print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n")
+    print("1. Flowers List")
+    print("2. Garden Plants List")
+    print("3. House Plants List")
+    print("4. Return to Main Menu\n")
+    print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n")
+
+    while True:
+        option = input("Please select an option from 1-4:\n").strip()
+        if option.isdigit():
+            option = int(option)
+            if 1 <= option <= 4:
+                if option == 1:
+                    menu_category_list("flowers list", flowerslist)
+                elif option == 2:
+                    menu_category_list("garden_plants list", gp_list)
+                elif option == 3:
+                    menu_category_list("houseplants list", hp_list)
+                elif option == 4:
+                    clear_screen()
+                    main_menu()
+                    break
+            else:
+                print(f"Invalid Input! Please enter a number between 1 and 4.")
+        else:
+            print("Invalid Input!\nPlease enter a number between 1 and 4.\n")
+
+
+def menu_category_list(category_name, category_sheet):
+    """
+    Displays the plant list in their specific category.
+    Args:
+        category_name (str): The name of the category.
+        category_sheet (Worksheet): The worksheet containing the category data.
+    """
+    clear_screen()
+    print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-")
+    print(category_name)
+    print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n")
+    data = category_sheet.get_all_values()    
+
+    for row in data:        
+        print("{:<20}".format(row[0]))
+    print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n")
+    input("Press 'Enter' to return to the plant list Menu\n")
+    clear_screen()    
+    plants_list_menu()
+    clear_screen()
 
 if __name__ == '__main__':
     welcome_message()
