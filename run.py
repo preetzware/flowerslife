@@ -27,6 +27,7 @@ def clear_screen():
     """
     os.system('cls' if os.name == 'nt' else 'clear')
 
+
 BRIGHT_GREEN = "\033[92m"
 BRIGHT_BLUE = "\033[94m"
 RESET = "\033[0m"
@@ -37,13 +38,16 @@ def welcome_message():
     Displays the welcome message.
     """
     clear_screen()
-    print(r"""
-      __      __   _                    _       
-      \ \    / /__| |__ ___ _ __  ___  | |_ ___ 
+
+
+print(r"""
+      __      __   _                    _
+      \ \    / /__| |__ ___ _ __  ___  | |_ ___
        \ \/\/ / -_) / _/ _ \ '  \/ -_) |  _/ _ \
         \_/\_/\___|_\__\___/_|_|_\___|  \__\___/
     """)
-    FLOWER = r"""
+
+FLOWER = r"""
         _
       _(_)_                          wWWWw   _
      (_)@(_)   vVVVv     _     @@@@  (___) _(_)_
@@ -54,18 +58,18 @@ def welcome_message():
         \\\|//\\\|/// \|///  \\\|//  \\|//  \\\|//
      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
     """
-    BANNER = r"""
-      ___ _                          __           _    _  __     
-     | __| |_____ __ _____ _ _ ___  / _|___ _ _  | |  (_)/ _|___ 
+BANNER = r"""
+      ___ _                          __           _    _  __
+     | __| |_____ __ _____ _ _ ___  / _|___ _ _  | |  (_)/ _|___
      | _|| / _ \ V  V / -_) '_(_-< |  _/ _ \ '_| | |__| |  _/ -_)
      |_| |_\___/\_/\_/\___|_| /__/ |_| \___/_|   |____|_|_| \___|
-                                                             
+
     """
 
-    print(f"{BRIGHT_GREEN}{FLOWER}{RESET}")
-    print(f"{BRIGHT_BLUE}{BANNER}{RESET}")
-    print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n")
-    input("Press (Enter) to go to the main menu\n")
+print(f"{BRIGHT_GREEN}{FLOWER}{RESET}")
+print(f"{BRIGHT_BLUE}{BANNER}{RESET}")
+print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n")
+input("Press (Enter) to go to the main menu\n")
 
 
 def main_menu():
@@ -83,16 +87,22 @@ def main_menu():
     print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n")
 
     while True:
-        option = input("Please select an option from 1-4 and press enter:\n").strip()
+        option = input(
+            "Please select an option from 1-4 and press enter:\n"
+            ).strip()
 
         if option.isdigit():
             option = int(option)
             if 1 <= option <= 4:
                 break
             else:
-                print("Invalid Input!\n Please enter a number between 1 & 4 and press enter\n")
+                print(
+                    "Invalid Input!\n"
+                    "Please enter a number between 1 & 4 and press enter\n")
         else:
-            print("Invalid Input!\n Please enter a number between 1 & 4 and press enter\n")
+            print(
+                "Invalid Input!\n"
+                "Please enter a number between 1 & 4 and press enter\n")
 
     if option == 1:
         print("View Current Stock:")
@@ -127,7 +137,9 @@ def submenu_current():
     print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n")
 
     while True:
-        option = input("Please select an option from 1-4 and press enter:\n").strip()
+        option = input(
+             "Please select an option from 1-4 and press enter:\n"
+        ).strip()
         if option.isdigit():
             option = int(option)
             if 1 <= option <= 4:
@@ -186,7 +198,9 @@ def input_new_menu():
     print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n")
 
     while True:
-        option = input("Please select an option from 1-4 and press enter:\n").strip()
+        option = input(
+             "Please select an option from 1-4 and press enter:\n"
+        ).strip()
 
         if option.isdigit():
             option = int(option)
@@ -273,7 +287,9 @@ def use_stock_menu():
     print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n")
 
     while True:
-        option = input("Please select an option from 1-4 and press enter:\n").strip()
+        option = input(
+             "Please select an option from 1-4 and press enter:\n"
+             ).strip()
 
         if option.isdigit():
             option = int(option)
@@ -362,7 +378,9 @@ def plants_list_menu():
     print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n")
 
     while True:
-        option = input("Please select an option from 1-4 and press enter:\n").strip()
+        option = input(
+             "Please select an option from 1-4 and press enter:\n"
+             ).strip()
         if option.isdigit():
             option = int(option)
             if 1 <= option <= 4:
@@ -421,7 +439,9 @@ def update_new_plant():
     print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n")
 
     while True:
-        option = input("Please select an option from 1-4 and press enter:\n").strip()
+        option = input(
+             "Please select an option from 1-4 and press enter:\n"
+             ).strip()
 
         if option.isdigit():
             option = int(option)
@@ -510,7 +530,9 @@ def update_plants_menu():
     print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n")
 
     while True:
-        option = input("Please select an option from 1-4 and press enter:\n").strip()
+        option = input(
+             "Please select an option from 1-4 and press enter:\n"
+             ).strip()
         if option.isdigit():
             option = int(option)
             if 1 <= option <= 4:
@@ -547,7 +569,9 @@ def remove_plant():
     print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n")
 
     while True:
-        option = input("Please select an option from 1-4 and press enter:\n").strip()
+        option = input(
+             "Please select an option from 1-4 and press enter:\n"
+            ).strip()
 
         if option.isdigit():
             option = int(option)
