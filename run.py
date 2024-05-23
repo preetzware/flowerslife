@@ -83,16 +83,16 @@ def main_menu():
     print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n")
 
     while True:
-        option = input("Please select an option from 1-4:\n").strip()
+        option = input("Please select an option from 1-4 and press enter:\n").strip()
 
         if option.isdigit():
             option = int(option)
             if 1 <= option <= 4:
                 break
             else:
-                print("Invalid Input!\n Please enter a number between 1 & 4\n")
+                print("Invalid Input!\n Please enter a number between 1 & 4 and press enter\n")
         else:
-            print("Invalid Input!\n Please enter a number between 1 & 4\n")
+            print("Invalid Input!\n Please enter a number between 1 & 4 and press enter\n")
 
     if option == 1:
         print("View Current Stock:")
@@ -127,7 +127,7 @@ def submenu_current():
     print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n")
 
     while True:
-        option = input("Please select an option from 1-4:\n").strip()
+        option = input("Please select an option from 1-4 and press enter:\n").strip()
         if option.isdigit():
             option = int(option)
             if 1 <= option <= 4:
@@ -186,17 +186,17 @@ def input_new_menu():
     print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n")
 
     while True:
-        option = input("Please select an option from 1-4:\n").strip()
+        option = input("Please select an option from 1-4 and press enter:\n").strip()
 
         if option.isdigit():
             option = int(option)
             if 1 <= option <= 4:
                 if option == 1:
-                    add_stock(flowers, "flowers")
+                    add_stock(flowers, "flower")
                 elif option == 2:
                     add_stock(gardenplant, "gardenplant")
                 elif option == 3:
-                    add_stock(houseplants, "houseplants")
+                    add_stock(houseplants, "houseplant")
                 elif option == 4:
                     print("Return to Main Menu")
                     main_menu()
@@ -224,7 +224,7 @@ def add_stock(inventory_sheet, category_name):
     print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n")
     while True:
         item_name = input(
-         f"Enter {category_name} item name, "
+         f"Enter {category_name} name, "
          f"or 'exit' to return to the menu:\n"
         ).lower()
 
@@ -247,7 +247,7 @@ def add_stock(inventory_sheet, category_name):
                       f"New amount: {new_amount}")
 
             else:
-                print(f"Item '{item_name}' not found in the category.")
+                print(f"Item '{item_name}' not found in the list.")
         elif amount_to_add.lower() == "exit":
             input_new_menu()
             return
@@ -273,7 +273,7 @@ def use_stock_menu():
     print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n")
 
     while True:
-        option = input("Please select an option from 1-4:\n").strip()
+        option = input("Please select an option from 1-4 and press enter:\n").strip()
 
         if option.isdigit():
             option = int(option)
@@ -312,7 +312,7 @@ def use_stock(inventory_sheet, category_name):
     print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n")
     while True:
         item_name = input(
-         f"Please enter {category_name} item name, "
+         f"Please enter {category_name} name, "
          f"or type 'exit' to go back to menu:\n"
         ).lower()
         if item_name == "exit":
@@ -362,7 +362,7 @@ def plants_list_menu():
     print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n")
 
     while True:
-        option = input("Please select an option from 1-4:\n").strip()
+        option = input("Please select an option from 1-4 and press enter:\n").strip()
         if option.isdigit():
             option = int(option)
             if 1 <= option <= 4:
@@ -421,7 +421,7 @@ def update_new_plant():
     print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n")
 
     while True:
-        option = input("Please select an option from 1-4:\n").strip()
+        option = input("Please select an option from 1-4 and press enter:\n").strip()
 
         if option.isdigit():
             option = int(option)
@@ -490,7 +490,7 @@ def update_list(in_sheet, category_sheet, category_name, action):
                 in_sheet.delete_rows(cell.row)
                 print(f"{item_name} is deleted")
             else:
-                print(f"{item_name} is found in the list")
+                print(f"{item_name} is not found in the list")
 
 
 def update_plants_menu():
@@ -510,7 +510,7 @@ def update_plants_menu():
     print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n")
 
     while True:
-        option = input("Please select an option from 1-4:\n").strip()
+        option = input("Please select an option from 1-4 and press enter:\n").strip()
         if option.isdigit():
             option = int(option)
             if 1 <= option <= 4:
@@ -547,7 +547,7 @@ def remove_plant():
     print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n")
 
     while True:
-        option = input("Please select an option from 1-4:\n").strip()
+        option = input("Please select an option from 1-4 and press enter:\n").strip()
 
         if option.isdigit():
             option = int(option)
