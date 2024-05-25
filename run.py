@@ -25,6 +25,7 @@ BRIGHT_GREEN = "\033[92m"
 BRIGHT_BLUE = "\033[94m"
 RESET = "\033[0m"
 
+
 def clear_screen():
     """
     clears console screen.
@@ -37,14 +38,16 @@ def welcome_message():
     Displays the welcome message.
     """
     clear_screen()
-    print(r"""
+    # WELCOME = r"""
+        
+    #     """
+
+    FLOWER = r"""
         __      __   _                    _
         \ \    / /__| |__ ___ _ __  ___  | |_ ___
          \ \/\/ / -_) / _/ _ \ '  \/ -_) |  _/ _ \
           \_/\_/\___|_\__\___/_|_|_\___|  \__\___/
-     """)
 
-    FLOWER = r"""
         _
       _(_)_                          wWWWw   _
      (_)@(_)   vVVVv     _     @@@@  (___) _(_)_
@@ -64,6 +67,7 @@ def welcome_message():
 
      """
 
+    # print(f"{BRIGHT_BLUE}{WELCOME}{RESET}")
     print(f"{BRIGHT_GREEN}{FLOWER}{RESET}")
     print(f"{BRIGHT_BLUE}{BANNER}{RESET}")
     print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n")
