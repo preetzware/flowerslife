@@ -361,6 +361,45 @@ def use_stock(inventory_sheet, category_name):
             print("Invalid input for amount. Please enter a valid number.")
 
 
+def update_plants_menu():
+    """
+    Displays the submenu for View Current Stock and handles user input.
+    """
+    clear_screen()
+    BLUE = "\033[94m"
+    RESET = "\033[0m"
+    print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n")
+    print(f"{BLUE}Update Plants{RESET}")
+    print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n")
+    print("1. View Plants List")
+    print("2. Add New Plant")
+    print("3. Remove Existing Plant")
+    print("4. Return to Main Menu")
+    print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n")
+
+    while True:
+        option = input(
+             "Please select an option from 1-4 and press enter:\n"
+             ).strip()
+        if option.isdigit():
+            option = int(option)
+            if 1 <= option <= 4:
+                if option == 1:
+                    plants_list_menu()
+                if option == 2:
+                    update_new_plant()
+                elif option == 3:
+                    remove_plant()
+                elif option == 4:
+                    clear_screen()
+                    main_menu()
+                    break
+            else:
+                print(f"Invalid Input! Please enter a number between 1 and 4.")
+        else:
+            print("Invalid Input!\nPlease enter a number between 1 and 4.\n")
+
+
 def plants_list_menu():
     """
     Displays the list of plants menu
@@ -374,7 +413,7 @@ def plants_list_menu():
     print("1. Flowers List")
     print("2. Garden Plants List")
     print("3. House Plants List")
-    print("4. Return to Main Menu\n")
+    print("4. Go Back\n")
     print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n")
 
     while True:
@@ -392,7 +431,7 @@ def plants_list_menu():
                     menu_category_list("houseplants list", hp_list)
                 elif option == 4:
                     clear_screen()
-                    main_menu()
+                    update_plants_menu()
                     break
             else:
                 print(f"Invalid Input! Please enter a number between 1 and 4.")
@@ -430,12 +469,12 @@ def update_new_plant():
     BLUE = "\033[94m"
     RESET = "\033[0m"
     print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-")
-    print(f"{BLUE}Update Plants{BLUE}")
+    print(f"{BLUE}Add New Plant{BLUE}")
     print("--------------------------------------------------\n")
     print("1. Flowers")
     print("2. Gardenplant")
     print("3. Houseplants")
-    print("4. Return to Main Menu")
+    print("4. Go Back")
     print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n")
 
     while True:
@@ -449,12 +488,12 @@ def update_new_plant():
                 if option == 1:
                     update_list(flowers, flowerslist, "flower", "add")
                 elif option == 2:
-                    update_list(gardenplant, gp_list, "garden_plant", "add")
+                    update_list(gardenplant, gp_list, "gardenplant", "add")
                 elif option == 3:
                     update_list(houseplants, hp_list, "houseplant", "add")
                 elif option == 4:
-                    print("Returning to Main Menu")
-                    main_menu()
+                    print("Go Back")
+                    update_plants_menu()
                     break
             else:
                 print("Invalid Choice. Please enter a number between 1 & 4\n")
@@ -483,7 +522,7 @@ def update_list(in_sheet, category_sheet, category_name, action):
     while True:
         item_name = input(
          f"Enter {category_name} name, "
-         f"or 'exit' to return to the menu:\n"
+         f"or 'exit' to go back:\n"
         ).lower()
 
         if item_name == "exit":
@@ -513,45 +552,6 @@ def update_list(in_sheet, category_sheet, category_name, action):
                 print(f"{item_name} is not found in the list")
 
 
-def update_plants_menu():
-    """
-    Displays the submenu for View Current Stock and handles user input.
-    """
-    clear_screen()
-    BLUE = "\033[94m"
-    RESET = "\033[0m"
-    print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n")
-    print(f"{BLUE}Update Plants{RESET}")
-    print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n")
-    print("1. View Plants List")
-    print("2. Add Stock")
-    print("3. Remove stock")
-    print("4. Return to  Main Menu")
-    print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n")
-
-    while True:
-        option = input(
-             "Please select an option from 1-4 and press enter:\n"
-             ).strip()
-        if option.isdigit():
-            option = int(option)
-            if 1 <= option <= 4:
-                if option == 1:
-                    plants_list_menu()
-                if option == 2:
-                    update_new_plant()
-                elif option == 3:
-                    remove_plant()
-                elif option == 4:
-                    clear_screen()
-                    main_menu()
-                    break
-            else:
-                print(f"Invalid Input! Please enter a number between 1 and 4.")
-        else:
-            print("Invalid Input!\nPlease enter a number between 1 and 4.\n")
-
-
 def remove_plant():
     """
     Displays the menu for removing item from the list
@@ -560,12 +560,12 @@ def remove_plant():
     BLUE = "\033[94m"
     RESET = "\033[0m"
     print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-")
-    print(f"{BLUE}Remove Item{BLUE}")
+    print(f"{BLUE}Remove Existing Plant{BLUE}")
     print("--------------------------------------------------\n")
     print("1. Flowers")
     print("2. Gardenplant")
     print("3. Houseplants")
-    print("4. Return to Main Menu")
+    print("4. Go Back")
     print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n")
 
     while True:
@@ -583,8 +583,8 @@ def remove_plant():
                 elif option == 3:
                     update_list(houseplants, hp_list, "houseplant", "remove")
                 elif option == 4:
-                    print("Returning to Main Menu")
-                    main_menu()
+                    print("Go Back")
+                    update_plants_menu()
                     break
             else:
                 print("Invalid Choice. Please enter a number between 1 & 4\n")
