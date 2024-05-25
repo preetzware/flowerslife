@@ -38,15 +38,14 @@ def welcome_message():
     Displays the welcome message.
     """
     clear_screen()
-    # WELCOME = r"""
+    WELCOME = r"""
+
+
+
         
-    #     """
+    """
 
     FLOWER = r"""
-
-
-
-    
         __      __   _                    _
         \ \    / /__| |__ ___ _ __  ___  | |_ ___
          \ \/\/ / -_) / _/ _ \ '  \/ -_) |  _/ _ \
@@ -71,7 +70,7 @@ def welcome_message():
 
      """
 
-    # print(f"{BRIGHT_BLUE}{WELCOME}{RESET}")
+    print(f"{BRIGHT_BLUE}{WELCOME}{RESET}")
     print(f"{BRIGHT_GREEN}{FLOWER}{RESET}")
     print(f"{BRIGHT_BLUE}{BANNER}{RESET}")
     print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n")
