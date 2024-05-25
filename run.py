@@ -25,7 +25,6 @@ BRIGHT_GREEN = "\033[92m"
 BRIGHT_BLUE = "\033[94m"
 RESET = "\033[0m"
 
-
 def clear_screen():
     """
     clears console screen.
@@ -33,24 +32,22 @@ def clear_screen():
     os.system('cls' if os.name == 'nt' else 'clear')
 
 
-def welcome_message():
+BRIGHT_GREEN = "\033[92m"
+BRIGHT_BLUE = "\033[94m"
+RESET = "\033[0m"
+
+def display_welcome_message():
     """
-    Displays the welcome message.
+    Displays the welcome message only once at the start of the program.
     """
-    clear_screen()
-    WELCOME = r"""
-
-
-
-        
-    """
-
+    print(r"""
+      __      __   _                    _
+      \ \    / /__| |__ ___ _ __  ___  | |_ ___
+       \ \/\/ / -_) / _/ _ \ '  \/ -_) |  _/ _ \
+        \_/\_/\___|_\__\___/_|_|_\___|  \__\___/
+    """)
+    
     FLOWER = r"""
-        __      __   _                    _
-        \ \    / /__| |__ ___ _ __  ___  | |_ ___
-         \ \/\/ / -_) / _/ _ \ '  \/ -_) |  _/ _ \
-          \_/\_/\___|_\__\___/_|_|_\___|  \__\___/
-
         _
       _(_)_                          wWWWw   _
      (_)@(_)   vVVVv     _     @@@@  (___) _(_)_
@@ -61,16 +58,14 @@ def welcome_message():
         \\\|//\\\|/// \|///  \\\|//  \\|//  \\\|//
      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
     """
-
+    
     BANNER = r"""
       ___ _                          __           _    _  __
      | __| |_____ __ _____ _ _ ___  / _|___ _ _  | |  (_)/ _|___
      | _|| / _ \ V  V / -_) '_(_-< |  _/ _ \ '_| | |__| |  _/ -_)
      |_| |_\___/\_/\_/\___|_| /__/ |_| \___/_|   |____|_|_| \___|
+    """
 
-     """
-
-    print(f"{BRIGHT_BLUE}{WELCOME}{RESET}")
     print(f"{BRIGHT_GREEN}{FLOWER}{RESET}")
     print(f"{BRIGHT_BLUE}{BANNER}{RESET}")
     print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n")
