@@ -36,7 +36,7 @@ BRIGHT_GREEN = "\033[92m"
 BRIGHT_BLUE = "\033[94m"
 RESET = "\033[0m"
 
-def display_welcome_message():
+def welcome_message():
     """
     Displays the welcome message only once at the start of the program.
     """
