@@ -66,7 +66,7 @@ BANNER = r"""
 
 print(f"{BRIGHT_GREEN}{FLOWER}{RESET}")
 print(f"{BRIGHT_BLUE}{BANNER}{RESET}")
-print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n")
+print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n")
 input("Press (Enter) to go to the main menu\n")
 
 
