@@ -34,6 +34,7 @@ Deployed application can be viewed here: [Flowers for Life]( https://flowers-for
 
 [Credits](#credits)
 
+
 # User experience
 
 ## Project Goals
@@ -60,3 +61,88 @@ The main purpose of Flowers for Life is to provide a timely stock management sys
 * As a user, I would like to see all the changes made reflect on my Google Sheets.
 
 * As a user, I would like my inputs to be validated whenever an error occurs.
+
+# Features
+All inputs have error messages that informs the user that their input is invalid and what they should enter.
+
+### Welcome Screen
+The welcome screen has been designed using ASCii art representing a garden of flowers and plants, and beneath it, the title of the application. ANSI Escape sequences have been used to add color to both features.
+
+![Welcome Screen](../flowerslife/assets/img/welcome_screen.png)
+
+### Main Menu
+Users are presented with a main menu displaying four different options:
+
+1.	User can input option 1 and press Enter to access the View Current Stock
+2.	User can input option 2 and press Enter to proceed to Add Stock 
+3.	User can input option 3 and press Enter to proceed to Deduct Stock
+4.	User can input option 4 and press Enter to access Update Stock sub-menu
+
+![Main Menu](../flowerslife/assets/img/main_menu.png)
+<br>  
+
+**View Current Stock**
+
+After proceeding to the View Current Stock option, the user will be presented with a sub-menu options where:
+1. The user can input 1 and press Enter to access the Flower sheet.
+2. The user can input 2 and press Enter to access the Gardenplant sheet.
+3. The user can input 1 and press Enter to access the Houseplants sheet.
+6. Alternately, the user can opt to return to the Main Menu by inputting 4 and pressing Enter.
+
+
+![View Current Stock](../flowerslife/assets/img/stock_submenu.png)   
+<br>
+
+**View Current Stock in each category**
+
+The Google sheets for the current stock of each category of plants features the plant’s name and its actual quantity held in stock. By pressing Enter, the user can go back to the sub-menu.
+
+1. **Flowers** current stock.
+
+![Flowers stock](../flowerslife/assets/img/flowers_stock.png)
+
+2. **Gardenplant** current stock.
+
+![Gardenplant stock](../flowerslife/assets/img/gardenplant_stock.png)
+
+3. **Houseplants** current stock.
+
+![Houseplants stock](../flowerslife/assets/img/houseplant_stock.png)
+
+4.	**Return to Main Menu**.
+This option will bring the user back to the main menu.
+
+<br>
+
+**Add Stock**
+
+The Add Stock option will direct the user to the same sub-menu that features the three categories of plants and their current stock amount. Once the user enters a plant category, they can add more stock to any specific plant listed there.
+
+![Flowers stock](../flowerslife/assets/img/flowers_stock.png)
+
+<br>
+
+If the user chooses ‘flowers’ from the sub-menu options and presses Enter, he or she will be asked to enter the flower name. If user types a relevant flower name from the current stock and presses Enter, he or she will then be asked to add the amount they wish to add and to press Enter. If all entries are successful, user will receive a confirmation message stating the amount added to that particular flower and how much is the new amount now in the current stock.   The same amount will also reflect on the flowers Google sheet. The procedure is the same for other chosen categories of plant too.
+
+
+![Flowers confirmation](../flowerslife/assets/img/addstock.png)
+
+<br>
+
+**Deduct Stock**
+
+- The Deduct Stock option also displays the same sub-menu of plants categories.  
+
+![Flowers stock](../flowerslife/assets/img/deduct_stock.png)
+
+<br>
+
+If the user selects houseplants category and presses Enter, he or she will be asked to Enter a relevant houseplant name from the current stock and to press Enter. Thereafter, the user will be asked to Enter the amount to be used and to press Enter. If the inputs pass, a confirmation message will appear stating how much of the entered houseplant has been withdrawn, and what is the new amount in the current stock now. This new amount will also reflect on the ‘houseplants’ Google sheet. The procedure is the same for other chosen categories of plant too.
+
+**Current Stock Google Sheets**
+
+- The application interacts with Google Sheets to store and process data. Data is stored in a tabular format with the Current Stock rows updating in each plant category whenever the user is adding or deducting the plants’ stock.
+
+
+
+
