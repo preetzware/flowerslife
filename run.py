@@ -25,6 +25,7 @@ BRIGHT_GREEN = "\033[92m"
 BRIGHT_BLUE = "\033[94m"
 RESET = "\033[0m"
 
+
 def clear_screen():
     """
     clears console screen.
@@ -36,19 +37,14 @@ BRIGHT_GREEN = "\033[92m"
 BRIGHT_BLUE = "\033[94m"
 RESET = "\033[0m"
 
+
 def welcome_message():
     """
     Displays the welcome message only once at the start of the program.
     """
     clear_screen()
 
-# print(r"""
-#       __      __   _                    _
-#       \ \    / /__| |__ ___ _ __  ___  | |_ ___
-#        \ \/\/ / -_) / _/ _ \ '  \/ -_) |  _/ _ \
-#         \_/\_/\___|_\__\___/_|_|_\___|  \__\___/
-#     """)
-    
+
 FLOWER = r"""
         _
       _(_)_                          wWWWw   _
@@ -60,7 +56,7 @@ FLOWER = r"""
         \\\|//\\\|/// \|///  \\\|//  \\|//  \\\|//
      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
     """
-    
+
 BANNER = r"""
       ___ _                          __           _    _  __
      | __| |_____ __ _____ _ _ ___  / _|___ _ _  | |  (_)/ _|___
@@ -337,7 +333,7 @@ def use_stock(inventory_sheet, category_name):
             use_stock_menu()
             return
 
-        amount_to_use = input("Please enter the amount to use:\n")
+        amount_to_use = input("Please enter the amount to be used:\n")
 
         if amount_to_use.isdigit():
             amount_to_use = int(amount_to_use)
