@@ -118,7 +118,7 @@ This option will bring the user back to the main menu.
 
 The Add Stock option will direct the user to the same sub-menu that features the three categories of plants and their current stock amount. Once the user enters a plant category, they can add more stock to any specific plant listed there.
 
-![Flowers sub-menu]()
+![Add Stock sub-menu](assets/img/add_stock.png)
 
 <br>
 
@@ -133,40 +133,50 @@ If the user chooses ‘flowers’ from the sub-menu options and presses Enter, h
 
 - The Deduct Stock option also displays the same sub-menu of plants categories.  
 
-![Flowers stock](assets/img/deduct_stock.png)
+![Deduct stock](assets/img/deduct_menu.png)
 
 <br>
 
 If the user selects houseplants category and presses Enter, he or she will be asked to Enter a relevant houseplant name from the current stock and to press Enter. Thereafter, the user will be asked to Enter the amount to be used and to press Enter. If the inputs pass, a confirmation message will appear stating how much of the entered houseplant has been withdrawn, and what is the new amount in the current stock now. This new amount will also reflect on the ‘houseplants’ Google sheet. The procedure is the same for other chosen categories of plant too.
 
-**Update Stock**
+![Deduct stock](assets/img/deduct_stock.png)
+
+<br>
+
+**Update Plants**
+
+![Update Stock Sub-menu](assets/img/updateplants_menu.png)
 
 The Update Stock option will direct the user to another sub-menu that will feature:
 1.	**View Plants List**
 
 Upon choosing this option, user will be directed to the plants lists sub-menu where they can choose which plant list they want to view and upon pressing Enter, they will be directed to the particular list.
 
-![Plants Lists Sub-menu]()
+![Plants Lists Sub-menu](assets/img/plantlist_menu.png)
 
-**Plants Lists from Google Sheet**
+**Plants Lists interacting with Google Sheet**
 
 Each plant list contains a variety of plants’ list for every season and it is a reference for the user where he or she can order as many seasonal plants as they wish from any plants’ category. 
 
-![Plants Lists]()	![Plants Lists]()	
+![Flowers List](assets/img/flowerlist.png)
+<br>      
+![Houseplant Lists](assets/img/hp_list.png)	
+<br>  
+![Garden-plant Lists](assets/img/gp_list.png)	
 
 	
 2.	**Add New Plant**
 
 With reference to the plants’ list, the user can add as many newly bought plants into the current stock with the new amount entered. After choosing Add New Plant and pressing Enter, the user will be directed to a sub-menu featuring the plants’ categories. The user selects which category of plant they wish to add the new plants to and presses Enter. As per the category chosen, user will be asked to enter flower, gardenplant or houseplants name. After entering the name, they will be asked to enter the amount to be added. If all entries are passed, a confirmation message will appear showing 
 
-![Plants Lists]()
+![Plants Lists](assets/img/addnew_geranium.png)
 
 3.	**Remove Existing Plant**
 
 After choosing Remove Existing Plant and pressing Enter, the user will be directed to the same sub-menu featuring the plants’ categories. The user will be asked the plant name they wish to remove from the existing category. After entering the particular plant name and pressing Enter, the user gets notified that the particular plant is deleted. User can continue to either delete more plants or exit to the sub-menu.
 
 
-![Plants Lists]()
+![Plants Lists](assets/img/remove_plant.png)
 
 
 4.	**Return to Main Menu** - The User returns to the Main Menu with this option.
@@ -177,7 +187,18 @@ After choosing Remove Existing Plant and pressing Enter, the user will be direct
 
 The application interacts with Google Sheets to store and process data. Data is stored in a tabular format with the Current Stock rows updating in each plant category whenever the user is adding or deducting the plants’ stock. In regards to the Plants Lists, User can access the different plants' category lists to be able to refer to the seasonal plants and accordingly update the current stock. Besides that, the user has the option to delete a complete row of plant from the current stock whenever the plant is no more seasonal or not available.   
 
-![Plants Lists]()
+![Flowers sheets](assets/img/flowers_sheet.png)
+<br>
+![Houseplants sheets](assets/img/houseplants_sheet.png)
+<br>
+![Gardenplant sheets](assets/img/gardenplant_sheet.png)
+<br>
+![Flowers List sheet](assets/img/flowers_listsheets.png)
+<br>
+![Houseplant list sheet](assets/img/hp_listsheets.png)
+<br>
+![Garden-plant list sheet](assets/img/gp_listsheets.png)
+<br>
 
 
 

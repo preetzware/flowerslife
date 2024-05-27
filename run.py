@@ -582,7 +582,7 @@ def remove_plant():
                     update_list(houseplants, hp_list, "houseplants", "remove")
                 elif option == 4:
                     print("Go Back")
-                    remove_plant()
+                    update_plants_menu()
                     break
             else:
                 print("Invalid Choice. Please enter a number between 1 & 4\n")
