@@ -62,6 +62,13 @@ The main purpose of Flowers for Life is to provide a timely stock management sys
 
 * As a user, I would like my inputs to be validated whenever an error occurs.
 
+
+# Flowchart
+Lucidchart was used to design the flowchart for this apllication.
+
+![Flowchart](assets/img/flowchart.png)
+<br> 
+
 # Features
 All inputs have error messages that informs the user that their input is invalid and what they should enter.
 
@@ -199,6 +206,44 @@ The application interacts with Google Sheets to store and process data. Data is 
 <br>
 ![Garden-plant list sheet](assets/img/gp_listsheets.png)
 <br>
+
+# Future Features
+
+- 
+- At some point in future, I would like to add a stock list for flower arrangement equipments like paper wrappings, boxes, ribbons, cards, etc to allow users to add, deduct and update entries in the equipment stock also. This feature will provide users with more control over their data and enable them to make corrections or remove outdated information as needed.
+
+
+
+[Back to top ⇧](#flowers-for-life)
+
+
+## Technologies Used
+
+### Language Used
+
+* [Python3](https://en.wikipedia.org/wiki/Python_(programming_language)) was used to write all the codes for this project.
+
+### Frameworks, Libraries and Programs Used
+
+* [GitPod](https://gitpod.io/) was used for writing the codes, committing, and then pushing to GitHub.
+
+* [GitHub](https://github.com/) was used to store the project after pushing.
+
+* [Heroku](https://id.heroku.com/) was used to deploy the application.
+
+* [PEP8 CI Python Linter](https://pep8ci.herokuapp.com/) was used to validate the Python code.
+
+* [ASCII Art Generator](https://www.asciiart.eu/) was used to design the welcome screen.
+
+* [ASCII Art Banner Maker](https://manytools.org/hacker-tools/ascii-banner/) to create the banner in welcome screen.
+
+* [ANSI Escape Code](https://en.wikipedia.org/wiki/ANSI_escape_code)  was used to apply color to the terminal texts. 
+
+* [Lucidchart](https://lucid.co/) was used to design the flowchart.
+
+* [Google Sheets](https://www.google.com/sheets/about/) was used to store and update data.
+
+[Back to top ⇧](#flowers-for-life)
 
 
 
