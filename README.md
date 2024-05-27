@@ -6,7 +6,7 @@ User can acknowledge current stock of flowers and accordingly add or deduct plan
 
 This python programme runs in the Code Institute mock terminal on Heroku.
 
-![Am I responsive](../flowerslife/assets/img/am_i_responsive.png)
+![Am I responsive](assets/img/am_i_responsive.png)
 
 Deployed application can be viewed here: [Flowers for Life]( https://flowers-for-life-409563cf12eb.herokuapp.com/)
 
@@ -68,7 +68,7 @@ All inputs have error messages that informs the user that their input is invalid
 ### Welcome Screen
 The welcome screen has been designed using ASCii art representing a garden of flowers and plants, and beneath it, the title of the application. ANSI Escape sequences have been used to add color to both features.
 
-![Welcome Screen](../flowerslife/assets/img/welcome_screen.png)
+![Welcome Screen](assets/img/welcome_screen.png)
 
 ### Main Menu
 Users are presented with a main menu displaying four different options:
@@ -78,7 +78,7 @@ Users are presented with a main menu displaying four different options:
 3.	User can input option 3 and press Enter to proceed to Deduct Stock
 4.	User can input option 4 and press Enter to access Update Stock sub-menu
 
-![Main Menu](../flowerslife/assets/img/main_menu.png)
+![Main Menu](assets/img/main_menu.png)
 <br>  
 
 **View Current Stock**
@@ -90,7 +90,7 @@ After proceeding to the View Current Stock option, the user will be presented wi
 6. Alternately, the user can opt to return to the Main Menu by inputting 4 and pressing Enter.
 
 
-![View Current Stock](../flowerslife/assets/img/stock_submenu.png)   
+![View Current Stock](assets/img/stock_submenu.png)   
 <br>
 
 **View Current Stock in each category**
@@ -99,15 +99,15 @@ The Google sheets for the current stock of each category of plants features the 
 
 1. **Flowers** current stock.
 
-![Flowers stock](../flowerslife/assets/img/flowers_stock.png)
+![Flowers stock](assets/img/flowers_stock.png)
 
 2. **Gardenplant** current stock.
 
-![Gardenplant stock](../flowerslife/assets/img/gardenplant_stock.png)
+![Gardenplant stock](assets/img/gardenplant_stock.png)
 
 3. **Houseplants** current stock.
 
-![Houseplants stock](../flowerslife/assets/img/houseplant_stock.png)
+![Houseplants stock](assets/img/houseplant_stock.png)
 
 4.	**Return to Main Menu**.
 This option will bring the user back to the main menu.
@@ -118,14 +118,14 @@ This option will bring the user back to the main menu.
 
 The Add Stock option will direct the user to the same sub-menu that features the three categories of plants and their current stock amount. Once the user enters a plant category, they can add more stock to any specific plant listed there.
 
-![Flowers stock](../flowerslife/assets/img/flowers_stock.png)
+![Flowers stock](assets/img/flowers_stock.png)
 
 <br>
 
 If the user chooses ‘flowers’ from the sub-menu options and presses Enter, he or she will be asked to enter the flower name. If user types a relevant flower name from the current stock and presses Enter, he or she will then be asked to add the amount they wish to add and to press Enter. If all entries are successful, user will receive a confirmation message stating the amount added to that particular flower and how much is the new amount now in the current stock.   The same amount will also reflect on the flowers Google sheet. The procedure is the same for other chosen categories of plant too.
 
 
-![Flowers confirmation](../flowerslife/assets/img/addstock.png)
+![Flowers confirmation](assets/img/addstock.png)
 
 <br>
 

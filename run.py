@@ -577,9 +577,9 @@ def remove_plant():
                 if option == 1:
                     update_list(flowers, flowerslist, "flower", "remove")
                 elif option == 2:
-                    update_list(gardenplant, gp_list, "garden_plant", "remove")
+                    update_list(gardenplant, gp_list, "gardenplant", "remove")
                 elif option == 3:
-                    update_list(houseplants, hp_list, "houseplant", "remove")
+                    update_list(houseplants, hp_list, "houseplants", "remove")
                 elif option == 4:
                     print("Go Back")
                     update_plants_menu()
