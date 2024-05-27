@@ -245,5 +245,90 @@ The application interacts with Google Sheets to store and process data. Data is 
 
 [Back to top ⇧](#flowers-for-life)
 
+## TESTING
 
+### Python PEP8 Validation
+[Pep8 CI Python Linter](https://pep8ci.herokuapp.com/) was used to validate the python codes for the apllication. Most common issues raised were as follows:
+* **E501** Line too long.
+   * This error was raised as a result of the lines of code exceeding the maximum line length of 79 characters. It was resolved by the assistance of ChatGPT that suggested to split the long strings into multiple concatenated strings using parentheses. This was fixed.
+* **W293** Blank line contains white space.
+   * This warning was fixed by removing the white spaces on blank lines.
+* **E302** Expected two blank lines.
+   * This was resolved by pressing Enter one more time before the functions.   
+* **W291** Trailing whitespace.
+   * This issue was fixed by removing the white space at the end of the lines in question.
 
+After these issues were fixed, the results showed no errors found.
+
+![Garden-plant list sheet](assets/img/ci_python_linter.png)
+
+### Manual Testing
+
+<table>
+    <tr>
+        <th>Feature</th>
+        <th>Outcome</th>
+        <th>Example</th>
+        <th>Pass/Fail</th>
+    </tr>
+    <tr>
+        <td rowspan=2>Menu Format</td>
+        <td>Validates input for the main menu option which is a number from 1 to 4.</td>
+        <td><img src=assets/img/mainmenu_validation.png alt="main menu invalid input"></td>
+        <td>Pass</td>
+    </tr>
+        <td>Validates input for sub menu options which is a number between 1 to 4.</td>
+        <td><img src=assets/img/submenu_validation.png alt="sub menu invalid input"></td>
+        <td>Pass</td>
+    </tr>   
+    <tr>
+        <td rowspan=4>Data Entry Values</td>
+        <td>Validates input for the plant names and the amount to be added.</td>
+        <td><img src=assets/ alt="invalid input"></td>
+        <td>Pass</td>
+    </tr>
+        <td>Validates input for the plant names and the amount to be deducted.</td>
+        <td><img src=assets/ alt="invalid input"></td>
+        <td>Pass</td>
+    </tr>
+        <td>alidation</td>
+        <td><img src=assets/ alt="invalid input"></td>
+        <td>Pass</td>
+    </tr>
+        <td>alidation.</td>
+        <td><img src=assets/ alt="invalid input"></td>
+        <td>Pass</td>
+    </tr>
+    <tr>
+        <td>Validation</td>
+        <td>Validates .</td>
+        <td><img src=assets/ alt="workout date format"></td>
+        <td>Pass</td>
+    <tr>
+        <td>Validation</td>
+        <td>Validates .</td>
+        <td><img src=assets/ alt="positive distance validation"></td>
+        <td>Pass</td>
+    <tr>
+        <td rowspan=4>Duration Format</td>
+        <td>Validates t</td>
+        <td><img src=assets/readme-files/duration-format.png alt="duration format"></td>
+        <td>Pass</td>
+    </tr>
+        <td>Validates .</td>
+        <td><img src=assets/readme-files/hours-invalid.png alt="invalid hours entry"></td>
+        <td>Pass</td>
+    </tr>
+    </tr>
+        <td>Validates.</td>
+        <td><img src=assets/readme-files/minutes-number-invalid.png alt="invalid minutes entry"></td>
+        <td>Pass</td>
+    </tr>
+    </tr>
+        <td>Validates .</td>
+        <td><img src=assets/ alt="two-digit minutes entry"></td>
+        <td>Pass</td>
+    </tr>
+</table>
+
+[Back to top ⇧](#fitness-tracker)
