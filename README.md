@@ -118,14 +118,14 @@ This option will bring the user back to the main menu.
 
 The Add Stock option will direct the user to the same sub-menu that features the three categories of plants and their current stock amount. Once the user enters a plant category, they can add more stock to any specific plant listed there.
 
-![Flowers stock](assets/img/flowers_stock.png)
+![Flowers sub-menu]()
 
 <br>
 
 If the user chooses ‘flowers’ from the sub-menu options and presses Enter, he or she will be asked to enter the flower name. If user types a relevant flower name from the current stock and presses Enter, he or she will then be asked to add the amount they wish to add and to press Enter. If all entries are successful, user will receive a confirmation message stating the amount added to that particular flower and how much is the new amount now in the current stock.   The same amount will also reflect on the flowers Google sheet. The procedure is the same for other chosen categories of plant too.
 
 
-![Flowers confirmation](assets/img/addstock.png)
+![Flowers stock](assets/img/addstock.png)
 
 <br>
 
@@ -133,16 +133,51 @@ If the user chooses ‘flowers’ from the sub-menu options and presses Enter, h
 
 - The Deduct Stock option also displays the same sub-menu of plants categories.  
 
-![Flowers stock](../flowerslife/assets/img/deduct_stock.png)
+![Flowers stock](assets/img/deduct_stock.png)
 
 <br>
 
 If the user selects houseplants category and presses Enter, he or she will be asked to Enter a relevant houseplant name from the current stock and to press Enter. Thereafter, the user will be asked to Enter the amount to be used and to press Enter. If the inputs pass, a confirmation message will appear stating how much of the entered houseplant has been withdrawn, and what is the new amount in the current stock now. This new amount will also reflect on the ‘houseplants’ Google sheet. The procedure is the same for other chosen categories of plant too.
 
-**Current Stock Google Sheets**
+**Update Stock**
 
-- The application interacts with Google Sheets to store and process data. Data is stored in a tabular format with the Current Stock rows updating in each plant category whenever the user is adding or deducting the plants’ stock.
+The Update Stock option will direct the user to another sub-menu that will feature:
+1.	**View Plants List**
 
+Upon choosing this option, user will be directed to the plants lists sub-menu where they can choose which plant list they want to view and upon pressing Enter, they will be directed to the particular list.
+
+![Plants Lists Sub-menu]()
+
+**Plants Lists from Google Sheet**
+
+Each plant list contains a variety of plants’ list for every season and it is a reference for the user where he or she can order as many seasonal plants as they wish from any plants’ category. 
+
+![Plants Lists]()	![Plants Lists]()	
+
+	
+2.	**Add New Plant**
+
+With reference to the plants’ list, the user can add as many newly bought plants into the current stock with the new amount entered. After choosing Add New Plant and pressing Enter, the user will be directed to a sub-menu featuring the plants’ categories. The user selects which category of plant they wish to add the new plants to and presses Enter. As per the category chosen, user will be asked to enter flower, gardenplant or houseplants name. After entering the name, they will be asked to enter the amount to be added. If all entries are passed, a confirmation message will appear showing 
+
+![Plants Lists]()
+
+3.	**Remove Existing Plant**
+
+After choosing Remove Existing Plant and pressing Enter, the user will be directed to the same sub-menu featuring the plants’ categories. The user will be asked the plant name they wish to remove from the existing category. After entering the particular plant name and pressing Enter, the user gets notified that the particular plant is deleted. User can continue to either delete more plants or exit to the sub-menu.
+
+
+![Plants Lists]()
+
+
+4.	**Return to Main Menu** - The User returns to the Main Menu with this option.
+
+<br>
+
+**Google Sheets**
+
+The application interacts with Google Sheets to store and process data. Data is stored in a tabular format with the Current Stock rows updating in each plant category whenever the user is adding or deducting the plants’ stock. In regards to the Plants Lists, User can access the different plants' category lists to be able to refer to the seasonal plants and accordingly update the current stock. Besides that, the user has the option to delete a complete row of plant from the current stock whenever the plant is no more seasonal or not available.   
+
+![Plants Lists]()
 
 
 
