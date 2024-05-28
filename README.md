@@ -288,11 +288,11 @@ After these issues were fixed, the results showed no errors found.
         <td>As shown in the image, any other string input than the houseplant name in the current stock is throwing an error stating that the input is not found the plants category. Inputting a number for the first entry and a string for the second entry also warns of an error. Finally, inputting a plant name found in the current stock of houseplants category validates the entry.</td>
         <td>Pass</td>
     </tr>
-        <td>Validates a string input which in this case is the plant names found in the current stock. Also validates a number for the amount to be deducted.</td>
+        <td>Validates a string input which in this case is the plants' names found in the current stock. Also validates a number for the amount to be deducted.</td>
         <td><img src=assets/ alt="invalid input"></td>
         <td>Pass</td>
     </tr>
-        <td>Validates a string input which in this case is the plant names found in the update plants lists. Also validates a number for the amount to be added.</td>
+        <td>Validates a string input which in this case is the plants' names found in the update plants lists. Also validates a number for the amount to be added.</td>
         <td><img src=assets/ alt="invalid input"></td>
         <td>Pass</td>
     </tr>
@@ -301,35 +301,39 @@ After these issues were fixed, the results showed no errors found.
         <td>Pass</td>
     </tr>
     <tr>
-        <td>Validation</td>
-        <td>Validates .</td>
+        <td>Google Sheets automation</td>
+        <td>Checks for automation of tasks such as data validation, updates, and .</td>
         <td><img src=assets/ alt="workout date format"></td>
-        <td>Pass</td>
-    <tr>
-        <td>Validation</td>
-        <td>Validates .</td>
-        <td><img src=assets/ alt="positive distance validation"></td>
-        <td>Pass</td>
-    <tr>
-        <td rowspan=4>Duration Format</td>
-        <td>Validates t</td>
-        <td><img src=assets/readme-files/duration-format.png alt="duration format"></td>
-        <td>Pass</td>
-    </tr>
-        <td>Validates .</td>
-        <td><img src=assets/readme-files/hours-invalid.png alt="invalid hours entry"></td>
-        <td>Pass</td>
-    </tr>
-    </tr>
-        <td>Validates.</td>
-        <td><img src=assets/readme-files/minutes-number-invalid.png alt="invalid minutes entry"></td>
-        <td>Pass</td>
-    </tr>
-    </tr>
-        <td>Validates .</td>
-        <td><img src=assets/ alt="two-digit minutes entry"></td>
         <td>Pass</td>
     </tr>
 </table>
 
-[Back to top ⇧](#fitness-tracker)
+### Testing User Stories
+
+As a user, I want to be able to:
+* Easily navigate through the main menu and sub-menus and hence select an option.
+* View screen contents clearly and understand the flow of the program.
+* Understand the menus texts clearly to be able to input data correctly.
+* Receive appropriate feedback for any wrong input to be able to enter the input correctly.
+* View the current stock of plants and acknowledge the plants categories, plants names and their actual quantity.
+* Add plants within the different categories and be able to see the updates in the respective google sheets.
+* Deduct plants quantity after usage and be able to see the changes reflect on the respective google sheets.
+* Get prompted for details and be provided with information on the requirements for valid input.
+* Move on to the next detail only after putting a valid input.
+* After inputting the details for confirmation or after acknowledging contents of the screen, the possibility to either do the action (add/deduct/remove plant/Add new plant) or to exit it.
+* View established lists of different categories of plants and choose to pick one and add to the current stock subject to its category.
+* Remove a plant completely from its category and check the outcome on the google sheets.
+* Opt to return to the main menu in order to select a different option and perform a new task.
+
+[Back to top](#flowers-for-life)
+
+### Development Bugs
+
+Manual testing was performed for each feature during the development phase. A few problems were found and resolved. The final outcome was that all features worked as intended as can be seen in the [features section](#features).
+
+Issues encountered during development are:
+
+* Scrolling and previous screen texts overlapping in the next screens. Initially I thought it might be an issue with missing clear screen function but I could not figure out what was causing this until I took tutor support whereby it was brought to my attention that the mock terminal where the app was deployed has a set height. Hence, I went on to remove the ASCII banner ‘Welcome to’ text from the welcome screen and I had to reduce my plants’ lists to make sure that there was no scrolling. After that, I manually tested the app again. The issue was resolved.
+   
+
+* When entering details for add new plant, the program checks if the plant name is in the relevant category of the plant’s list and that it is not repeated from the current stock. It was not validating the input, that is if roses were already in the current stock of the flower category, it would still add a new row of roses with the new amount entered and that could occur for a number of times. This issue was resolved by adding an if statement to check if the plant name in the current stock cell is similar to the plant names in the cell list, then an error message will pop up to alert the user. 
