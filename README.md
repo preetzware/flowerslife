@@ -16,9 +16,9 @@ Deployed application can be viewed here: [Flowers for Life]( https://flowers-for
 
 [User Experience](#user-experience)
 
-[Features](#features)
-
 [Flow Chart](#flow-chart)
+
+[Features](#features)
 
 [Technology used](#technology-used)
 
@@ -44,19 +44,17 @@ The main purpose of Flowers for Life is to provide a timely stock management sys
 
 ## User stories
 
-* As a user, I want to understand the main purpose of this program and its functionalities.
-
 * As a user, I would like to easily navigate through the menu and sub-menus.
 
 * As a user, I want to acknowledge my current stock and act accordingly.
 
-* As a user, I want to add bought plants to my current stock into their respective categories. 
+* As a user, I want to add plants to my current stock into their respective categories. 
 
 * As a user, I want to deduct plants from the current stock depending on the total sale of plants in each category.
 
 * As a user, I want to update my current stock by adding newly bought seasonal plants into each category of the plants.
 
-* As a user, I want to update my current stock by completely wiping out plants from any of the categories when they are seasonally not available at all.
+* As a user, I want to update my current stock by completely wiping out plants from any of the categories when they are seasonally not available.
 
 * As a user, I would like to see all the changes made reflect on my Google Sheets.
 
@@ -207,13 +205,6 @@ The application interacts with Google Sheets to store and process data. Data is 
 ![Garden-plant list sheet](assets/img/gp_listsheets.png)
 <br>
 
-# Future Features
-
-- 
-- At some point in future, I would like to add a stock list for flower arrangement equipments like paper wrappings, boxes, ribbons, cards, etc to allow users to add, deduct and update entries in the equipment stock also. This feature will provide users with more control over their data and enable them to make corrections or remove outdated information as needed.
-
-
-
 [Back to top ⇧](#flowers-for-life)
 
 
@@ -231,7 +222,13 @@ The application interacts with Google Sheets to store and process data. Data is 
 
 * [Heroku](https://id.heroku.com/) was used to deploy the application.
 
-* [PEP8 CI Python Linter](https://pep8ci.herokuapp.com/) was used to validate the Python code.
+* [gspread](https://docs.gspread.org/en/v6.0.0/) played a key role in facilitating easy and intuitive interaction with the Google Sheets.
+
+* [google.oauth2.service_account.Credentials](https://developers.google.com/identity/protocols/oauth2) part of the google-auth library, this module was used to securely authenticate the application by using a service account credentials stored in the JSON file. 
+
+* [os](https://www.w3schools.com/python/module_os.asp) part of Python's standard library, the os module enabled interaction with the operating system for file operations, environment management, and running system commands.
+
+* [PEP8 CI Python Linter](https://pep8ci.herokuapp.com/) was very useful in validating the Python codes. It featured all the errors clearly, thus rendering the debugging more easy.
 
 * [ASCII Art Generator](https://www.asciiart.eu/) was used to design the welcome screen.
 
@@ -239,9 +236,9 @@ The application interacts with Google Sheets to store and process data. Data is 
 
 * [ANSI Escape Code](https://en.wikipedia.org/wiki/ANSI_escape_code)  was used to apply color to the terminal texts. 
 
-* [Lucidchart](https://lucid.co/) was used to design the flowchart.
+* [Lucidchart](https://lucid.co/) is a versatile tool that was used to plan and develop the project. It provides clear visualizations of the system architecture, workflows, database schemas, and user interactions. 
 
-* [Google Sheets](https://www.google.com/sheets/about/) was used to store and update data.
+* [Google Sheets](https://www.google.com/sheets/about/) was vital in providing a versatile, accessible, and collaborative platform for managing the plant inventory data, facilitating seamless integration with my Python application to streamline operations and enhance productivity.
 
 [Back to top ⇧](#flowers-for-life)
 
@@ -269,33 +266,37 @@ After these issues were fixed, the results showed no errors found.
         <th>Feature</th>
         <th>Outcome</th>
         <th>Example</th>
+        <th>Explanation</th>
         <th>Pass/Fail</th>
     </tr>
     <tr>
-        <td rowspan=2>Menu Format</td>
+        <td rowspan=2><strong>Menu Format</strong></td>
         <td>Validates input for the main menu option which is a number from 1 to 4.</td>
         <td><img src=assets/img/mainmenu_validation.png alt="main menu invalid input"></td>
+        <td>As shown in the example, an error message displays whenever the user's input is greater than number 4, is a string or is a series of special characters. Each time the input is incorrect, the user is notified that the entry is invalid and that a number between 1 to 4 should be entered.</td> 
         <td>Pass</td>
     </tr>
         <td>Validates input for sub menu options which is a number between 1 to 4.</td>
         <td><img src=assets/img/submenu_validation.png alt="sub menu invalid input"></td>
+        <td>Same as the main menu, an error message displays whenever the user's input is greater than number 4, is a string or is a series of special characters. Each time the input is incorrect, the user is notified that the entry is invalid and that a number between 1 to 4 should be entered.</td>
         <td>Pass</td>
     </tr>   
     <tr>
-        <td rowspan=4>Data Entry Values</td>
-        <td>Validates input for the plant names and the amount to be added.</td>
+        <td rowspan=4><strong>Data Entry Values</strong></td>
+        <td>'Add Stock' Option Validates a string input which in this case is the plant names found in the current stock. Also validates a number for the amount to be added.</td>
+        <td><img src=assets/ alt="invalid input"></td>
+        <td>As shown in the image, any other string input than the houseplant name in the current stock is throwing an error stating that the input is not found the plants category. Inputting a number for the first entry and a string for the second entry also warns of an error. Finally, inputting a plant name found in the current stock of houseplants category validates the entry.</td>
+        <td>Pass</td>
+    </tr>
+        <td>Validates a string input which in this case is the plant names found in the current stock. Also validates a number for the amount to be deducted.</td>
         <td><img src=assets/ alt="invalid input"></td>
         <td>Pass</td>
     </tr>
-        <td>Validates input for the plant names and the amount to be deducted.</td>
+        <td>Validates a string input which in this case is the plant names found in the update plants lists. Also validates a number for the amount to be added.</td>
         <td><img src=assets/ alt="invalid input"></td>
         <td>Pass</td>
     </tr>
-        <td>alidation</td>
-        <td><img src=assets/ alt="invalid input"></td>
-        <td>Pass</td>
-    </tr>
-        <td>alidation.</td>
+        <td>Validates a string input which in this case is the plant names that exist in the current stock of any chosen plant category. Validates removal of plant's name and amount by confirming deletion of the input.</td>
         <td><img src=assets/ alt="invalid input"></td>
         <td>Pass</td>
     </tr>
