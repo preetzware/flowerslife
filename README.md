@@ -363,8 +363,9 @@ The application was deployed using [Heroku](https://id.heroku.com/) via the foll
 [Back to top ⇧](#flowers-for-life)
 
 ## Credits
-
-
+- Love sandwiches project was extremely helpful for showing how to import the libraries, deploy the app, etc.
+- ChatGPT for providing the steps to add the ANSI Escape Sequences (color) to the texts in the app.
+- My Cohort facilitator Amy Richardson to provide useful links like ASCII art and banner, Lucid chart, etc.  
 
 ## Acknowledgements
 
