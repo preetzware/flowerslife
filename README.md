@@ -337,3 +337,41 @@ Issues encountered during development are:
    
 
 * When entering details for add new plant, the program checks if the plant name is in the relevant category of the plant’s list and that it is not repeated from the current stock. It was not validating the input, that is if roses were already in the current stock of the flower category, it would still add a new row of roses with the new amount entered and that could occur for a number of times. This issue was resolved by adding an if statement to check if the plant name in the current stock cell is similar to the plant names in the cell list, then an error message will pop up to alert the user. 
+
+<br>
+
+## Deployment
+
+The application was deployed using [Heroku](https://id.heroku.com/) via the following steps:
+
+1. Create the requirements.txt file and run: `pip3 freeze > requirements.txt` in the console.
+2. Commit changes and push them to GitHub.
+3. Go to the Heroku's website.
+4. From the Heroku dashboard, click on "Create new app".
+5. Enter the "App name" and "Choose a region" before clicking on "Create app".
+6. Go to "Config Vars" under the "Settings" tab.
+7. Click on "Reveals Config Vars" and add the KEY: CREDS and the VALUE stored in creds.json file if needed.
+8. Add another Config Var, KEY: PORT and VALUE: 8000.
+9. Go to "Buildpacks" section and click "Add buildpack".
+10. Select "python" and click "Save changes"
+11. Add "nodejs" buildpack as well using the same process.
+12. Go to "Deployment method", under the "Deploy" tab select "GitHub" and click on "Connect to GitHub".
+13. Go to "Connect to GitHub" section and "Search" the repository to be deployed.
+14. Click "Connect" next the repository name.
+15. Choose "Automatic deploys" or "Manual deploys" to deploy your application.
+
+[Back to top ⇧](#flowers-for-life)
+
+## Credits
+
+
+
+## Acknowledgements
+
+* Sonam Bheeku for helping me understand the floral management system.
+
+* Friends for helping me with manual validation and feedback. 
+ 
+* My tutor, Harry Dhillon, for reviewing the project and for his constructive feedback and guidance.
+
+* Code Institute, Student Support, Tutor Support and the Slack community.
