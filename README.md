@@ -1,8 +1,6 @@
 # Flowers for Life
 
-Flowers for Life is a CLI data automation program designed for the inventory management of flowers in a florist shop. 
-
-User can acknowledge current stock of flowers and accordingly add or deduct plants in or from the current stocks as sold, used or bought. User can additionally remove an existing plant in the current stock that is no more seasonal and instead input a new plant that is available during the season, in its respective category.
+Flowers for Life is a robust Command-Line Interface (CLI) data automation program meticulously crafted to streamline the inventory management processes for a florist shop. This program leverages the power of Python and Google Sheets integration to provide an efficient and user-friendly solution for tracking and managing flower inventory. This application is an indispensable tool for any florist shop looking to modernize and automate their inventory management processes. By combining the simplicity of a CLI with the powerful data management capabilities of Google Sheets, it offers a practical solution that enhances productivity and ensures data integrity.
 
 This python programme runs in the Code Institute mock terminal on Heroku.
 
@@ -337,7 +335,37 @@ Issues encountered during development are:
 
 <br>
 
-## Deployment
+## Unfixed Bugs
+
+From the last testings carried out, there were none detected.
+
+## Set up and Deployment
+
+### Set Up
+
+* Following steps from the Love Sandwiches Walkthrough project, I firstly created a created a new GitHub repository using the Code Institute's Python Essentials template.
+* I named the repository 'flowerslife' and the logged in to Gitpod where I clicked on new workspace and pasted the repository's URL to open it to be able to work on my project. 
+
+### Google Sheets
+
+* Following the steps in Love Sandwiches Walkthrough Project, I used my personal Google account to create a spreadsheet labelled 'flowers-for-life' through the Google Cloud Platform. I added five more spreadsheets to display the plants in different categories. 
+* I used Google Drive API (Application Programming Interface) to access my Google Sheets stored on Google Drive, and interact with them.
+* Next, I created a Service Account and downloaded a private credentials key in JSON format to authenticate and authorize my application to interact with the Google Sheets. 
+
+### Credentials
+
+* The JSON credentials file was dragged and dropped into my gitpod workspace where I renamed it creds.json. It was added to the .gitignore list to prevent it from being tracked by version control for security reasons.
+* I then copied the client email address from the creds.json file and pasted it into the "Share with people and groups" dialog of the Google Sheets interface. This setup ensures that my scripts can access, read, and write data to the sheet as required, enabling seamless automation and data management within the project.
+
+### External Python Libraries
+
+ In my project, libraries like gspread, google.oauth2.service_account, and os play critical roles in enabling seamless integration with Google Sheets, ensuring secure authentication, and managing system-level operations. These libraries collectively empower my project to be more efficient, reliable, and scalable. Following the steps in the Love Sandwiches Walkthrough project, I imported these libraries by inputting 'import gspread' & 'from google.oauth2.service_account import Credentials' into the terminal and pressing Enter.
+
+ * The os module was also imported - its primary use being to manage the console screen, ensuring a clean and user-friendly interface. 
+
+ * The SCOPE variable was copied from Love Sandwiches Walkthrough Project and added below the imported external libraries. The purpose of SCOPE is that it ensures that my application only requests access to the specific resources it needs, adhering to the principle of least privilege.
+
+ ### Deployment
 
 The application was deployed using [Heroku](https://id.heroku.com/) via the following steps:
 
@@ -360,9 +388,11 @@ The application was deployed using [Heroku](https://id.heroku.com/) via the foll
 [Back to top ⇧](#flowers-for-life)
 
 ## Credits
-- Love sandwiches project was extremely helpful for showing how to import the libraries, deploy the app, etc.
-- ChatGPT for providing the steps to add the ANSI Escape Sequences (color) to the texts in the app.
+- Love sandwiches project was extremely helpful for showing how to import the libraries, set up and connect API, deploy the app, etc.
+
 - My Cohort facilitator Amy Richardson to provide useful links like ASCII art and banner, Lucid chart, etc.  
+
+- ChatGPT for providing the steps to add the ANSI Escape Sequences (color) to the texts in the app.
 
 ## Acknowledgements
 
