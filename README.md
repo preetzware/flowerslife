@@ -284,26 +284,23 @@ After these issues were fixed, the results showed no errors found.
     <tr>
         <td rowspan=4><strong>Data Entry Values</strong></td>
         <td>'Add Stock' Option Validates a string input which in this case is the plant names found in the current stock. Also validates a number for the amount to be added.</td>
-        <td><img src=assets/ alt="invalid input"></td>
+        <td><img src=assets/img/addstock_valid.png alt="invalid inputs for Add stock option"></td>
         <td>As shown in the image, any other string input than the houseplant name in the current stock is throwing an error stating that the input is not found the plants category. Inputting a number for the first entry and a string for the second entry also warns of an error. Finally, inputting a plant name found in the current stock of houseplants category validates the entry.</td>
         <td>Pass</td>
     </tr>
         <td>Validates a string input which in this case is the plants' names found in the current stock. Also validates a number for the amount to be deducted.</td>
-        <td><img src=assets/ alt="invalid input"></td>
+        <td><img src=assets/img/deductstock_valid.png alt="invalid inputs for Deduct Stock option"></td>
+        <td>Similar to the 'Add stock' option, the 'Deduct Stock' also validates only a plant name from its specific category. In this case, user entered 'apple' instead of houseplant name and received an error. Inputting any number or special characters, will also throw an error.</td>
         <td>Pass</td>
     </tr>
-        <td>Validates a string input which in this case is the plants' names found in the update plants lists. Also validates a number for the amount to be added.</td>
-        <td><img src=assets/ alt="invalid input"></td>
+        <td>The 'Add New Plant' validates a string input which in this case is the plants' names found in the 'View Plants List' in Update Plants Menu section. Also validates a number for the amount to be added.</td>
+        <td><img src=assets/img/newplant_valid.png alt="invalid inputs for Add New Plant"></td>
+        <td>The user must refer to the plants' list in the different categories of plants in order to add a plant and its quantity in the current stock. When inputting any other value than the plant within the chosen category, an error appears like here, inputting 'jack', numbers, special characters and even an existing plant in the current stock will throw an error because it is not to be repeated.</td>
         <td>Pass</td>
     </tr>
-        <td>Validates a string input which in this case is the plant names that exist in the current stock of any chosen plant category. Validates removal of plant's name and amount by confirming deletion of the input.</td>
-        <td><img src=assets/ alt="invalid input"></td>
-        <td>Pass</td>
-    </tr>
-    <tr>
-        <td>Google Sheets automation</td>
-        <td>Checks for automation of tasks such as data validation, updates, and .</td>
-        <td><img src=assets/ alt="workout date format"></td>
+        <td>Validates a string input which in this case is the plant names that exist in the current stock of any chosen plant category. Validates removal of plant's name and its stock amount by confirming deletion of the input.</td>
+        <td><img src=assets/img/delete_plant_valid.png alt="invalid inputs for Remove Existing Plant"></td>
+        <td>As shown here, the user is prompted to enter the relevant plant name from the chosen category while other string inputs, numbers and special characters are not validated and will throw an error. </td>
         <td>Pass</td>
     </tr>
 </table>
@@ -336,7 +333,7 @@ Issues encountered during development are:
 * Scrolling and previous screen texts overlapping in the next screens. Initially I thought it might be an issue with missing clear screen function but I could not figure out what was causing this until I took tutor support whereby it was brought to my attention that the mock terminal where the app was deployed has a set height. Hence, I went on to remove the ASCII banner ‘Welcome to’ text from the welcome screen and I had to reduce my plants’ lists to make sure that there was no scrolling. After that, I manually tested the app again. The issue was resolved.
    
 
-* When entering details for add new plant, the program checks if the plant name is in the relevant category of the plant’s list and that it is not repeated from the current stock. It was not validating the input, that is if roses were already in the current stock of the flower category, it would still add a new row of roses with the new amount entered and that could occur for a number of times. This issue was resolved by adding an if statement to check if the plant name in the current stock cell is similar to the plant names in the cell list, then an error message will pop up to alert the user. 
+* When entering details for add new plant, the program checks if the plant name is in the relevant category of the plant’s list and that it does not repeat an existing plant name from the current stock. However, it was i was not getting the same expected results. For instance, if roses were already in the current stock of the flower category, and if user will go to 'Add New Plant' and type to add roses again, the entry was successful and a new row of roses with the new amount ewould appear on the 'flowers' google sheet and if user repeats the process again, roses could be added for a number of times. This issue was resolved by adding an if statement to check if the plant name in the current stock cell is similar to the plant names in the cell list, then an error message will pop up to alert the user that this plant already exists in the category and they should add a new plant.
 
 <br>
 
@@ -344,15 +341,15 @@ Issues encountered during development are:
 
 The application was deployed using [Heroku](https://id.heroku.com/) via the following steps:
 
-1. Create the requirements.txt file and run: `pip3 freeze > requirements.txt` in the console.
-2. Commit changes and push them to GitHub.
-3. Go to the Heroku's website.
+1. Create the requirements.txt file and run: `pip3 freeze > requirements.txt` in the terminal.
+2. Commit these changes and push them to GitHub.
+3. Log in to the Heroku's website.
 4. From the Heroku dashboard, click on "Create new app".
 5. Enter the "App name" and "Choose a region" before clicking on "Create app".
 6. Go to "Config Vars" under the "Settings" tab.
 7. Click on "Reveals Config Vars" and add the KEY: CREDS and the VALUE stored in creds.json file if needed.
-8. Add another Config Var, KEY: PORT and VALUE: 8000.
-9. Go to "Buildpacks" section and click "Add buildpack".
+8. Add another Config Var with KEY: PORT and VALUE: 8000.
+9. Go to the "Buildpacks" section and click "Add buildpack".
 10. Select "python" and click "Save changes"
 11. Add "nodejs" buildpack as well using the same process.
 12. Go to "Deployment method", under the "Deploy" tab select "GitHub" and click on "Connect to GitHub".
@@ -376,3 +373,5 @@ The application was deployed using [Heroku](https://id.heroku.com/) via the foll
 * My tutor, Harry Dhillon, for reviewing the project and for his constructive feedback and guidance.
 
 * Code Institute, Student Support, Tutor Support and the Slack community.
+
+[Back to top ⇧](#flowers-for-life)
